@@ -136,18 +136,19 @@ main h2 {
     margin-bottom: 0;
 }
 .tab .nav-tabs li a{
-    font-size: 14px;
+    font-size: 11px;
     color: #222;
     background: #fff;
     border-radius: 0;
     padding: 15px;
     margin-right: 0;
     border: none;
-    border-top: 1px solid #f0f0f0;
+
     border-left: 1px solid #f0f0f0;
     text-transform: uppercase;
     position: relative;
     transition: all 0.3s ease 0s;
+    overflow: hidden;
 }
 .tab .nav-tabs li:last-child a,
 .tab .nav-tabs li:last-child.active a{
@@ -173,11 +174,11 @@ main h2 {
 }
 .tab .nav-tabs li.active a:before,
 .tab .nav-tabs li.active a:hover:before{
-    top: -3px;
+
     opacity: 1;
 }
 .tab .nav-tabs li a:hover:before{
-    top: -4px;
+
     opacity: 1;
 }
 .tab .nav-tabs li.active a:after,
@@ -193,7 +194,7 @@ main h2 {
 }
 .tab .nav-tabs li.active a:after,
 .tab .nav-tabs li a:hover:after{
-    top: -1px;
+
     opacity: 1;
 }
 .tab .tab-content{

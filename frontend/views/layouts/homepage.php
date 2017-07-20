@@ -88,7 +88,7 @@ AppAsset::register($this);
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="by-name">
-                                <p>Name</p>
+                                <p>Name abc</p>
                             </div>
                         </div>
                     </div>
