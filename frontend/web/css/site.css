@@ -92,6 +92,14 @@ header ul li {
     float: left;
 }
 
+header .pull-left {
+    margin-left: 200px;
+}
+
+header .pull-right ul li a i {
+    margin-right: 5px;
+}
+
 header ul li a {
     line-height: 150px;
     text-transform: uppercase;
@@ -106,4 +114,16 @@ header ul li a:hover {
 header > div, header > div > div,
 header > div > div > div {
     height: 100%;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color:white
+}
+
+main h2 {
+    color:white;
+    font-size:60px;
 }

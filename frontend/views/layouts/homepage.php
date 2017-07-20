@@ -42,14 +42,34 @@ AppAsset::register($this);
                     </div>
                     <div class="pull-right">
                         <ul id="right-nav" class="clearfix">
-                            <li><a href="<?= Url::toRoute('dang-ky/') ?>">Đăng ký</a></li>
-                            <li><a href="<?= Url::toRoute('dang-nhap/') ?>">Đăng nhập</a></li>
+                            <li><a href="<?= Url::toRoute('dang-ky/') ?>"><i class="fa fa-user-plus"></i> Đăng ký</a></li>
+                            <li><a href="<?= Url::toRoute('dang-nhap/') ?>"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="text-center">Welcome</h2>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="text-center">
+                        Copyright &copy; www.yeubongda.com. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 <?php $this->endBody() ?>
 </body>
