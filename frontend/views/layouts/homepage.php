@@ -57,6 +57,43 @@ AppAsset::register($this);
                     <h2 class="text-center">Welcome</h2>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-12 three">
+                    <div class="tab" role="tabpanel">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#by-time" aria-controls="home" role="tab" data-toggle="tab">Tìm kiếm theo giờ</a></li>
+                            <li role="presentation"><a href="#by-name" aria-controls="home" role="tab" data-toggle="tab">Tìm kiếm theo tên</a></li>
+                        </ul>
+                        <!-- Tab panes -->
+                        <div class="tab-content tabs">
+                            <div role="tabpanel" class="tab-pane fade in active" id="by-time">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="date" name="date">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-control" name="city">
+                                            <option value="0">Thành phố</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <select class="form-control" name="city">
+                                            <option value="0">Quận/huyện</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="by-name">
+                                <p>Name</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
     <footer>
