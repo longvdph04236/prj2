@@ -92,6 +92,18 @@ header ul li {
     float: left;
 }
 
-header > div {
+header ul li a {
+    line-height: 150px;
+    text-transform: uppercase;
+    padding: 0 10px;
+}
+
+header ul li a:hover {
+    text-decoration: none;
+    color: #00df00;
+}
+
+header > div, header > div > div,
+header > div > div > div {
     height: 100%;
 }
