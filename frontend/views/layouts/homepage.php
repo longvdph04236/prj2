@@ -27,6 +27,9 @@ AppAsset::register($this);
         <div class="container">
             <div class="row">
                 <div class="col-md-12 clearfix">
+                    <div class="center-logo">
+                        <a href="#"><img src="<?= Yii::getAlias('@web')?>/img/logo.png" alt=""></a>
+                    </div>
                     <div class="pull-left">
                         <nav id="main-nav">
                             <ul class="clearfix">
@@ -36,9 +39,6 @@ AppAsset::register($this);
                                 <li><a href="<?= Url::toRoute('ve-chung-toi/') ?>">Về chúng tôi</a></li>
                             </ul>
                         </nav>
-                    </div>
-                    <div class="center-logo">
-                        <a href="#"><img src="<?= Yii::getAlias('@web')?>/img/logo.png" alt=""></a>
                     </div>
                     <div class="pull-right">
                         <ul id="right-nav" class="clearfix">
