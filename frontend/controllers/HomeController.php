@@ -9,5 +9,4 @@ class HomeController extends \yii\web\Controller
         $this->layout = 'homepage';
         return $this->render('index');
     }
-
 }

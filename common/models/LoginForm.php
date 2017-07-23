@@ -23,7 +23,8 @@ class LoginForm extends Model
     {
         return [
             // username and password are both required
-            [['username', 'password'], 'required'],
+            ['username', 'required', 'message' => 'Tên đăng nhập bắt buộc'],
+            ['password', 'required', 'message' => 'Mật khẩu nhập bắt buộc'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
@@ -43,7 +44,7 @@ class LoginForm extends Model
         if (!$this->hasErrors()) {
             $user = $this->getUser();
             if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Incorrect username or password.');
+                $this->addError($attribute, 'Sai tên đăng nhập hoặc mật khẩu.');
             }
         }
     }
