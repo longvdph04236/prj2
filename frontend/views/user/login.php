@@ -14,12 +14,13 @@ use yii\helpers\Html;
     <?= $form->field($model, 'rememberMe')->checkbox()->label('Lưu đăng nhập') ?>
 
     <div class="form-group">
-        <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+        <?= Html::submitButton('Đăng nhập', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
     </div>
 </div>
 
-<div style="color:#999;margin:1em 0">
-    If you forgot your password you can <?= Html::a('reset it', ['site/request-password-reset']) ?>.
+<div class="flex-form-item">
+    <?= Html::a('Quên mật khẩu?', ['site/request-password-reset']) ?>
+    <?= Html::a('Chưa có tài khoản?', ['user/dang-ky']) ?>
 </div>
 
 <?php ActiveForm::end(); ?>

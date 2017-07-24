@@ -60,3 +60,17 @@ a:focus, a:active, a:hover , a:visited {
     display: flex;
     justify-content: space-between;
 }
+
+#loginModal .modal-content {
+    padding-bottom: 20px;
+}
+
+#loginModal .modal-header {
+    text-align: center;
+    border-bottom: none;
+    text-transform: uppercase;
+}
+
+#loginModal .modal-header h4 {
+    margin: 30px 0 20px;
+}
