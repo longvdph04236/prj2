@@ -43,8 +43,12 @@ class LoginForm extends Model
     {
         if (!$this->hasErrors()) {
             $user = $this->getUser();
-            if (!$user || !$user->validatePassword($this->password)) {
-                $this->addError($attribute, 'Sai tên đăng nhập hoặc mật khẩu.');
+            if ($user) {
+                if(!$user->validatePassword($this->password)){
+                    $this->addError($attribute, 'Sai mật khẩu.');
+                }
+            } else {
+                $this->addError('username', 'Sai tên đăng nhập.');
             }
         }
     }
