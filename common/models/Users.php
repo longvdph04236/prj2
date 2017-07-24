@@ -3,6 +3,10 @@
 namespace common\models;
 
 use Yii;
+use yii\base\NotSupportedException;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "users".
@@ -23,11 +27,9 @@ use Yii;
  * @property Schedule[] $schedules
  * @property Stadiums[] $stadiums
  */
-class Users extends \yii\db\ActiveRecord
+class Users extends ActiveRecord
 {
-    /**
-     * @inheritdoc
-     */
+
     public static function tableName()
     {
         return 'users';
