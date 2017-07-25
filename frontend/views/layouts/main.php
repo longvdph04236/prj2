@@ -62,7 +62,7 @@ AppAsset::register($this);
                 <div class="pull-right">
                     <ul id="right-nav" class="clearfix">
                         <li><a href="<?= Url::toRoute('user/dang-ky') ?>"><i class="fa fa-user-plus"></i> Đăng ký</a></li>
-                        <li><a href="#" id="login-a-btn" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                        <li><a href="" id="login-a-btn" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
                     </ul>
                 </div>
             </div>
@@ -144,6 +144,28 @@ AppAsset::register($this);
         </div>
     </div>
 </footer>
+<div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Đăng nhập</h4>
+            </div>
+            <div class="modal-body">
+                <div class="login-form-container">
+                    <div class="fb-login-button" data-width="300" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+                    <span>hoặc</span>
+                    <div class="login-form-2" data-content="<?= Url::toRoute('user/dang-nhap',true)?>">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 <?php $this->endBody() ?>
 </body>
 </html>
