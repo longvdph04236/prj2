@@ -8,6 +8,7 @@ class UserController extends \yii\web\Controller
 {
     public function actionIndex()
     {
+        $this->view->params['big-title'] = 'Hồ sơ người dùng';
         return $this->render('index');
     }
 
@@ -23,6 +24,12 @@ class UserController extends \yii\web\Controller
                 'model' => $model
             ]);
         }
+    }
+
+    public function actionDangKy()
+    {
+        $this->view->params['big-title'] = 'Đăng ký';
+        return $this->render('signup');
     }
 
 }

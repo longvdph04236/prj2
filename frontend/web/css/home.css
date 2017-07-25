@@ -38,16 +38,6 @@ div.bg-full-screen:after {
     width: 100vw;
 }
 
-.center-logo img {
-    width: 200px;
-}
-
-header {
-    height:150px;
-    position: relative;
-    background: white;
-}
-
 header.transparent-bg {
     background: transparent;
 }
@@ -56,50 +46,16 @@ header.transparent-bg a {
     color:white;
 }
 
-header .center-logo {
-    position: absolute;
-    top:50%;
-    left: 0;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-}
-
-header ul li {
-    float: left;
-}
-
-header .pull-left {
-    margin-left: 200px;
-}
-
-header .pull-right ul li a i {
-    margin-right: 5px;
-}
-
-header ul li a {
-    line-height: 150px;
-    text-transform: uppercase;
-    padding: 0 10px;
-}
-
-header ul li a:hover {
-    text-decoration: none;
-    color: #00df00;
-}
-
-header > div, header > div > div,
-header > div > div > div {
-    height: 100%;
-}
-
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    color:white
+    color:white;
+    background: none;
+}
+
+footer:before, footer:after {
+    display: none;
 }
 
 main h2 {
@@ -198,4 +154,9 @@ main h2 {
 
 .tab .tab-content button[type=submit] {
     width: 100%;
+}
+
+footer .row {
+    border-top:none !important;
+    padding: 0;
 }

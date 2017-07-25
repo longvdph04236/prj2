@@ -19,6 +19,59 @@ a:focus, a:active, a:hover , a:visited {
     text-decoration: none;
 }
 
+a:hover {
+    color: #00df00 !important;
+}
+
+header {
+    height:150px;
+    position: relative;
+    background: white;
+}
+
+.center-logo img {
+    width: 200px;
+}
+
+header .center-logo {
+    position: absolute;
+    top:50%;
+    left: 0;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+header ul li {
+    float: left;
+}
+
+header .pull-left {
+    margin-left: 200px;
+}
+
+header .pull-right ul li a i {
+    margin-right: 5px;
+}
+
+header ul li a {
+    line-height: 150px;
+    text-transform: uppercase;
+    padding: 0 10px;
+}
+
+header ul li a:hover {
+    text-decoration: none;
+    color: #00df00;
+}
+
+header > div, header > div > div,
+header > div > div > div {
+    height: 100%;
+}
+
 .login-form-container {
     width: 80%;
     max-width: 300px;
@@ -73,4 +126,154 @@ a:focus, a:active, a:hover , a:visited {
 
 #loginModal .modal-header h4 {
     margin: 30px 0 20px;
+}
+
+footer {
+    background: url("../img/background.jpg") no-repeat;
+    background-size: cover;
+    background-position: center center;
+    color:white;
+    position: relative;
+}
+
+footer > .container {
+    position: relative;
+    z-index:3;
+}
+
+footer:after {
+    content: '';
+    background: rgba(0,0,0,1);
+    /* Old Browsers */background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 100%);
+    /* FF3.6+ */background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(0,0,0,0.75)));
+    /* Chrome, Safari4+ */background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 100%);
+    /* Chrome10+,Safari5.1+ */background: -o-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 100%);
+    /* Opera 11.10+ */background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 100%);
+    /* IE 10+ */background: linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 100%);
+    /* W3C */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+    /* IE6-9 */
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 1;
+}
+
+footer:before {
+    content: '';
+    background: url(../img/footer.png) repeat-x;
+    background-size: auto 120px;
+    background-position: center;
+    display: block;
+    height: 120px;
+    position: absolute;
+    width: 100%;
+    top: -120px;
+}
+
+footer .row {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+footer .row:last-child {
+    text-align: center;
+    border-top:1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footer-col-heading h4 {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.footer-col-heading:after {
+    content: '';
+    width: 50px;
+    height: 2px;
+    background: white;
+    display: block;
+}
+
+.footer-col-content {
+    padding: 15px 0;
+    margin-top: 10px;
+}
+
+.footer-col-content ul.ul-flex-item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-col-content ul.ul-flex-item li {
+    width: 50%;
+    display: block;
+    margin: 0 0 10px;
+}
+
+.footer-col-content ul.ul-flex-item li a {
+    color:white;
+}
+
+.footer-col-content.contact-col p > i{
+    min-width: 20px;
+    margin-right: 10px;
+}
+
+.footer-col-content.contact-col p > a {
+    margin-right: 15px;
+    color:white;
+    font-size:20px;
+}
+
+.footer-col-content.contact-col p > a i.fa.fa-facebook {
+    color:#3b5998;
+}
+
+.footer-col-content.contact-col p > a i.fa.fa-twitter {
+    color: #0084b4;
+}
+
+.footer-col-content.contact-col p > a i.fa.fa-google-plus {
+    color: #dc4a3d;
+}
+
+main {
+    margin-bottom: 150px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left:0;
+    right:0;
+    bottom:0;
+    background: rgba(0,0,0,.75);
+}
+
+.big-title {
+    background: url("../img/Manchester-United.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    color:white;
+    padding: 15px 0 0;
+}
+
+.big-title h2 {
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+.breadcrumb {
+    background: none;
+    -webkit-border-radius:0;
+    -moz-border-radius:0;
+    border-radius:0;
+    padding: 10px 0;
+}
+
+.breadcrumb a {
+    color:white;
 }
