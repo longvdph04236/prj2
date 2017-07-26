@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=ABeeZee:400,400i|Crete+Round|Lato:100,300,400,700,900|Montserrat:400,900');
+@import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&amp;subset=vietnamese');
+
+#about {
+    padding: 40px 0;
+}
+
+.section-title {
+    text-align: center;
+}
+
+.section-title h2 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 48px;
+    letter-spacing: 2px;
+    margin-top: 0px;
+    color: #212121;
+}
+
+.section-title h2 span {
+    color: #0b9444;
+    font-family: 'Comfortaa', cursive;
+}
+
+.section-title h4 {
+    position: relative;
+    font-family: 'Comfortaa', cursive;
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #0b9444;
+    margin-top: 20px;
+}
+
+.section-title .divide {
+    display: block;
+    margin: 30px auto -20px;
+    width: 100px;
+    height: 2px;
+    background: #0b9444;
+}
+
+.section-title .section_description {
+    display: block;
+    position: relative;
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 60px;
+    max-width: 70%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    color: #7c7476;
+}
+
+.about-content {
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+.about-row {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-row h5 {
+    font-family: 'ABeeZee', sans-serif;
+    color: #0b9444;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-top: 0px;
+}
+
+.about-row p {
+    letter-spacing: 1px;
+    color: #7c7476;
+}
+
+.member {
+    text-align: center;
+}
+
+.member .bt {
+    padding-bottom: 18px;
+}
+
+.member img {
+    width: 100%;
+}
+
+.member .member-name {
+    font-family: 'Comfortaa', cursive;
+    font-size: 20px;
+    letter-spacing: 0.5px;
+    color: #212121;
+    margin-top: 18px;
+    margin-bottom: 1px;
+}
+
+.member small.member-role {
+    font-family: 'Comfortaa', cursive;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #7b7476;
+}
+
+.member p {
+    font-family: 'ABeeZee', sans-serif;
+    margin-top: 12px;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: #7b7476;
+}
+
+.member .team-contact a {
+    color: #212121;
+    font-size: 18px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+    padding: 5px;
+    margin: 0 5px;
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+#team .section_description {
+    margin-bottom:30px;
+}
+
+#team {
+    margin-bottom: 30px;
+}
