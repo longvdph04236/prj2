@@ -40,12 +40,8 @@ class UserController extends \yii\web\Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                //$identity = User::findOne($user->getId());
-                if (Yii::$app->user->login($user,3600*24*30)) {
-                    //var_dump(Yii::$app->user->identity); die;
+                if(Yii::$app->getUser()->login($user)){
                     return $this->redirect(['user/kich-hoat','u'=>$user->accessToken]);
-                } else {
-                    echo 'F';
                 }
             } else {
                 var_dump($user);
@@ -57,24 +53,90 @@ class UserController extends \yii\web\Controller
     public function actionKichHoat()
     {
         if(Yii::$app->user->isGuest) {
-            //return $this->goHome();
+            return $this->goHome();
         }
         $model = new ActivateForm();
         $this->view->params['big-title'] = 'Kích hoạt tài khoản';
-        var_dump(Yii::$app->user->identity); die;
         $user = User::findOne(Yii::$app->user->identity->getId());
+        if ($model->load(Yii::$app->request->post())) {
+            if($model->aT == $user->accessToken){
+                if(Yii::$app->request->cookies->get('otp')){
+                    if(Yii::$app->security->validatePassword($model->otp,Yii::$app->request->cookies->getValue('otp'))){
+                        $user->accessToken = null;
+                        $user->status = 'activated';
+                        if($user->save()){
+                            Yii::$app->session->setFlash('activeS', 'Bạn đã kích hoạt thành công tài khoản');
+                            return Yii::$app->response->redirect('home/');
+                        } else {
+                            echo('Can\'t save'); die;
+                        }
+                    } else {
+                        Yii::$app->session->setFlash('ckwrong', 'Mã không chính xác.');
+                        return false;
+                    }
+                } else {
+                    Yii::$app->session->setFlash('ckend', 'Mã đã hết hạn. Vui lòng lấy mã mới.');
+                    return false;
+                }
+            } else {
+                echo 'Người dùng không hợp lệ'; die;
+            }
+        }
         $phone = $user->phone;
         $code = mt_rand(0,9999);
         $code = str_pad((string)$code,4, "0", STR_PAD_LEFT);
         $mess = "Code kich hoat: ".$code;
-        Yii::$app->sms->send($phone, $mess);
-        Yii::$app->response->cookies->add(new Cookie([
-            'name' => 'otp',
-            'value' => Yii::$app->security->generatePasswordHash($code),
-            'expire' => 5 * 60 * 1000
-        ]));
+        if($this->smsTo($phone,$mess) == 'OK'){
+            Yii::$app->response->cookies->add(new Cookie([
+                'name' => 'otp',
+                'value' => Yii::$app->security->generatePasswordHash($code),
+                'expire' => 5 * 60 * 1000
+            ]));
+        }
+
         return $this->render('activate', ['model' => $model]);
 
+    }
+
+    public function actionResend(){
+        if(Yii::$app->request->isAjax){
+            $user = User::findIdentity(Yii::$app->user->identity);
+            $code = mt_rand(0,9999);
+            $code = str_pad((string)$code,4, "0", STR_PAD_LEFT);
+            $mess = "Code kich hoat: ".$code;
+            $phone = $user->phone;
+            if($this->smsTo($phone,$mess) == 'OK'){
+                Yii::$app->response->cookies->add(new Cookie([
+                    'name' => 'otp',
+                    'value' => Yii::$app->security->generatePasswordHash($code),
+                    'expire' => 5 * 60 * 1000
+                ]));
+                return true;
+            } else {
+                die('Không gửi được sms, hết tiền');
+            }
+        } else {
+            return false;
+        }
+    }
+
+    private function smsTo($phone, $mess){
+        $username = "841643959003";
+        $password = "8214";
+        $mobile = $phone;
+        $sender = "YeuBongDa";
+        $message = $mess;
+        $url = "http://sendpk.com/api/sms.php?username=".$username."&password=".$password."&mobile=".$mobile."&sender=".urlencode($sender)."&message=".urlencode($message)."";
+
+        $ch = curl_init();
+        $timeout = 30;
+        curl_setopt($ch,CURLOPT_URL,$url);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+        curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,$timeout);
+        $responce = curl_exec($ch);
+        curl_close($ch);
+        $res = explode(' ',$responce);
+        return $res[0];
     }
 }
 

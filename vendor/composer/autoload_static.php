@@ -33,10 +33,6 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'm' => 
-        array (
-            'miserenkov\\sms\\' => 15,
-        ),
         'd' => 
         array (
             'dmstr\\' => 6,
@@ -125,10 +121,6 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-        ),
-        'miserenkov\\sms\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/miserenkov/yii2-sms/src',
         ),
         'dmstr\\' => 
         array (

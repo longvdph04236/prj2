@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "90598dcef1c9c38e83706c9603239faf",
-    "content-hash": "bdfc2540541dc61fa1c18b1127e7d0db",
+    "hash": "64944e73a2049e1d210fc02bcb08b9b3",
+    "content-hash": "5bb15d2509efcd8bcd54db171ef02f7b",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -505,54 +505,6 @@
                 "icon"
             ],
             "time": "2016-10-24 15:52:54"
-        },
-        {
-            "name": "miserenkov/yii2-sms",
-            "version": "v1.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/miserenkov/yii2-sms.git",
-                "reference": "49e2c1fddeffb1f96f8aef1c03e6ecc97aab3109"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/miserenkov/yii2-sms/zipball/49e2c1fddeffb1f96f8aef1c03e6ecc97aab3109",
-                "reference": "49e2c1fddeffb1f96f8aef1c03e6ecc97aab3109",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5.0",
-                "yiisoft/yii2": "^2.0"
-            },
-            "require-dev": {
-                "codeception/codeception": "^2.2",
-                "yiisoft/yii2-codeception": "^2.0"
-            },
-            "type": "yii2-extension",
-            "autoload": {
-                "psr-4": {
-                    "miserenkov\\sms\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Misha Serenkov",
-                    "email": "mi.serenkov@gmail.com"
-                }
-            ],
-            "description": "Yii2 component for sending SMS messages",
-            "keywords": [
-                "sms",
-                "smsc",
-                "smsc.ru",
-                "smsc.ua",
-                "yii2"
-            ],
-            "time": "2016-12-03 13:36:56"
         },
         {
             "name": "rmrevin/yii2-fontawesome",

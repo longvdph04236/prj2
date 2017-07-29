@@ -3409,55 +3409,5 @@
             "theme",
             "yii2"
         ]
-    },
-    {
-        "name": "miserenkov/yii2-sms",
-        "version": "v1.0",
-        "version_normalized": "1.0.0.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/miserenkov/yii2-sms.git",
-            "reference": "49e2c1fddeffb1f96f8aef1c03e6ecc97aab3109"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/miserenkov/yii2-sms/zipball/49e2c1fddeffb1f96f8aef1c03e6ecc97aab3109",
-            "reference": "49e2c1fddeffb1f96f8aef1c03e6ecc97aab3109",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.5.0",
-            "yiisoft/yii2": "^2.0"
-        },
-        "require-dev": {
-            "codeception/codeception": "^2.2",
-            "yiisoft/yii2-codeception": "^2.0"
-        },
-        "time": "2016-12-03 13:36:56",
-        "type": "yii2-extension",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "miserenkov\\sms\\": "src"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Misha Serenkov",
-                "email": "mi.serenkov@gmail.com"
-            }
-        ],
-        "description": "Yii2 component for sending SMS messages",
-        "keywords": [
-            "sms",
-            "smsc",
-            "smsc.ru",
-            "smsc.ua",
-            "yii2"
-        ]
     }
 ]
