@@ -160,3 +160,7 @@ footer .row {
     border-top:none !important;
     padding: 0;
 }
+
+main {
+    margin-bottom:0 !important;
+}
