@@ -49,44 +49,5 @@ class Users extends ActiveRecord
     /**
      * @inheritdoc
      */
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'fullname' => 'Fullname',
-            'username' => 'Username',
-            'password' => 'Password',
-            'email' => 'Email',
-            'phone' => 'Phone',
-            'type' => 'Type',
-            'avatar' => 'Avatar',
-            'authKey' => 'Auth Key',
-            'accessToken' => 'Access Token',
-            'status' => 'Status',
-        ];
-    }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getComments()
-    {
-        return $this->hasMany(Comments::className(), ['user_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getSchedules()
-    {
-        return $this->hasMany(Schedule::className(), ['user_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getStadiums()
-    {
-        return $this->hasMany(Stadiums::className(), ['manager_id' => 'id']);
-    }
 }

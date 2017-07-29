@@ -75,4 +75,13 @@ return array (
       '@dmstr' => $vendorDir . '/dmstr/yii2-adminlte-asset',
     ),
   ),
+  'miserenkov/yii2-sms' => 
+  array (
+    'name' => 'miserenkov/yii2-sms',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@miserenkov/sms' => $vendorDir . '/miserenkov/yii2-sms/src',
+    ),
+  ),
 );
