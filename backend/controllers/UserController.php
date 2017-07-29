@@ -18,7 +18,7 @@ class UserController extends Controller
         $query = $model->getCount();
         $count = $query->count();
         $pagination = new Pagination(['totalCount'=>$count]);
-        $pagination->setPageSize(5);
+        $pagination->setPageSize(1);
         $articles = $query->offset($pagination->offset)
             ->limit($pagination->limit)
             ->all();

@@ -63,7 +63,7 @@
                                     </td>
 
                                     <td>
-                                        <?= $value->email ?>
+                                        <?= ($value->email == null) ?  'null' : $value->email; ?>
                                     </td>
 
                                     <td>
@@ -89,5 +89,14 @@
                </table>
            </div>
      </div>
+    <div class="text-center">
+        <?php
+            LinkPager::widget([
+               'pagination' => $pagination
+            ]);
+        ?>
+    </div>
+
+
 
 
