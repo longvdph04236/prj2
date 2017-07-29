@@ -3,9 +3,9 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=files.000webhost.com;dbname=Id2283305_mng_stadium',
-            'username' => 'Id2283305_root',
-            'password' => 'hoanvph04233',
+            'dsn' => 'mysql:host=johnny.heliohost.org;dbname=samwicky_timsan',
+            'username' => 'samwicky_admin',
+            'password' => '18101911',
             'charset' => 'utf8',
         ],
         'mailer' => [
