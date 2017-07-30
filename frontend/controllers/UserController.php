@@ -188,8 +188,8 @@ class UserController extends \yii\web\Controller
     }
 
     private function smsTo($phone, $mess){
-        $username = "84981830492";
-        $password = "2354";
+        $username = "0963468110 ";
+        $password = "7124";
         $mobile = $phone;
         $sender = "YeuBongDa";
         $message = $mess;

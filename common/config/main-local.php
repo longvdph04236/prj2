@@ -3,8 +3,12 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=johnny.heliohost.org;dbname=samwicky_timsan',
+            /*'dsn' => 'mysql:host=johnny.heliohost.org;dbname=samwicky_timsan',
             'username' => 'samwicky_admin',
+            'password' => '18101911',
+            'charset' => 'utf8',*/
+            'dsn' => 'mysql:host=mysql.hostinger.vn;dbname=u107395002_db',
+            'username' => 'u107395002_admin',
             'password' => '18101911',
             'charset' => 'utf8',
         ],
