@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace backend\models;
 
 use Yii;
 
@@ -55,16 +55,16 @@ class Users extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'fullname' => 'Fullname',
-            'username' => 'Username',
-            'password' => 'Password',
+            'fullname' => 'Họ Tên',
+            'username' => 'Tài Khoản',
+            'password' => 'Mật Khẩu',
             'email' => 'Email',
-            'phone' => 'Phone',
-            'type' => 'Type',
-            'avatar' => 'Avatar',
+            'phone' => 'Điện Thoại',
+            'type' => 'Vai Trò',
+            'avatar' => 'Ảnh đại diện',
             'authKey' => 'Auth Key',
             'accessToken' => 'Access Token',
-            'status' => 'Status',
+            'status' => 'Trạng thái',
         ];
     }
 
@@ -94,6 +94,11 @@ class Users extends \yii\db\ActiveRecord
 
     public function getCount() {
         $data = Users::find();
+        return $data;
+    }
+
+    public function getModel($id) {
+        $data = Users::find(['id'=>$id])->one();
         return $data;
     }
 }
