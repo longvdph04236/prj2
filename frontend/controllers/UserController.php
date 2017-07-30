@@ -7,10 +7,46 @@ use common\models\User;
 use frontend\models\ActivateForm;
 use frontend\models\SignupForm;
 use Yii;
+use yii\helpers\Url;
 use yii\web\Cookie;
 
 class UserController extends \yii\web\Controller
 {
+    public $successUrl = 'Success';
+    public $newUser;
+    public function actions()
+    {
+        return [
+            'auth' => [
+                'class' => 'yii\authclient\AuthAction',
+                'successCallback' => [$this, 'successCallback'],
+            ]
+        ];
+    }
+
+    public function successCallback($client)
+    {
+        $attributes = $client->getUserAttributes();
+        // user login or signup comes here
+        /*
+        Checking facebook email registered yet?
+        Maxsure your registered email when login same with facebook email
+        die(print_r($attributes));
+        */
+
+
+        $user = User::findOne(['email'=>$attributes['email']]);
+        if(!empty($user)){
+            Yii::$app->user->login($user);
+        }else{
+            $newUser = new SignupForm();
+            $newUser->username = $attributes['id'];
+            $newUser->email = $attributes['email'];
+            $newUser->fullName = $attributes['name'];
+            $this->successUrl = Url::toRoute(['user/dang-ky']);
+        }
+    }
+
     public function actionIndex()
     {
         $this->view->params['big-title'] = 'Hồ sơ người dùng';
@@ -22,6 +58,11 @@ class UserController extends \yii\web\Controller
         $model = new LoginForm();
         if(!Yii::$app->user->isGuest){
             return $this->goHome();
+        }
+        if(Yii::$app->request->isPost){
+            if($model->load(Yii::$app->request->post()) && $model->login()){
+                return $this->goHome();
+            }
         }
         if(\Yii::$app->request->isAjax){
             return $this->renderAjax('login', [
@@ -45,7 +86,12 @@ class UserController extends \yii\web\Controller
             }
         }
         $this->view->params['big-title'] = 'Đăng ký';
-        $model = new SignupForm();
+        if(!isset($this->newUser)){
+            $model = new SignupForm();
+        } else {
+            $model = $this->newUser;
+            Yii::$app->session->setFlash('continue','Điền thêm thông tin để tiếp tục');
+        }
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if(Yii::$app->getUser()->login($user)){

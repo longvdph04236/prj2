@@ -13,6 +13,16 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'defaultRoute' => 'home/',
     'components' => [
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'facebook' => [
+                    'class' => 'yii\authclient\clients\Facebook',
+                    'clientId' => '130033160929313',
+                    'clientSecret' => '67a6ba73955ce4aebb1a986d7f869fd7',
+                ],
+            ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
         ],

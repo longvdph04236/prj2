@@ -162,3 +162,7 @@ main {
 #team {
     padding: 70px 0 40px;
 }
+
+.section-title h2 {
+    text-transform: capitalize;
+}

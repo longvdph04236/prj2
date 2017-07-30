@@ -32,6 +32,7 @@ HomeAsset::register($this);
             version    : 'v2.10'
         });
         FB.AppEvents.logPageView();
+
     };
 
     (function(d, s, id) {
@@ -66,10 +67,10 @@ HomeAsset::register($this);
                             <?php
                             if(Yii::$app->user->isGuest) {
                                 ?>
-                                <li><a href="<?= Url::toRoute('user/dang-ky') ?>"><i class="fa fa-user-plus"></i> Đăng
-                                        ký</a></li>
                                 <li><a href="" id="login-a-btn" data-toggle="modal" data-target="#loginModal"><i
                                                 class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                                <li><a class="btn btn-default" href="<?= Url::toRoute('user/dang-ky') ?>"><i class="fa fa-user-plus"></i> Đăng
+                                        ký</a></li>
                                 <?php
                             } else {
                                 $user = \common\models\User::findIdentity(Yii::$app->user->identity);
@@ -77,7 +78,7 @@ HomeAsset::register($this);
                                 <li><a href=""><i class="fa fa-user"></i> <?= $user->fullname?></a></li>
                                 <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i
                                                 class="fa fa-sign-out"></i> Đăng xuất</a></li>
-                            <?php
+                                <?php
                             }
                             ?>
                         </ul>

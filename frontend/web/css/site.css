@@ -15,12 +15,15 @@ ul {
     margin: 0;
 }
 
-a:focus, a:active, a:hover , a:visited {
+a:focus, a:active, a:hover , a:visited,a {
     text-decoration: none;
+    color:black;
+    outline: none;
 }
 
 a:hover {
-    color: #00df00 !important;
+    color: #39B54A !important;
+    text-decoration: none;
 }
 
 header {
@@ -72,7 +75,7 @@ header .pull-right ul li a {
 
 header ul li a:hover {
     text-decoration: none;
-    color: #00df00;
+    color: #39B54A;
 }
 
 header > div, header > div > div,
@@ -286,4 +289,15 @@ main {
 
 .breadcrumb a {
     color:white;
+}
+
+.btn.btn-default {
+    background-color: #39B54A;
+    border-color: #00a600;
+    color:white !important;
+}
+
+.btn.btn-default:hover {
+    background-color: #00a600;
+    color:white !important;
 }
