@@ -1,8 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=ABeeZee:400,400i|Crete+Round|Lato:100,300,400,700,900|Montserrat:400,900');
 @import url('https://fonts.googleapis.com/css?family=Comfortaa:300,400,700&amp;subset=vietnamese');
 
+main {
+    padding-top: 0 !important;
+}
+
 #about {
-    padding: 40px 0;
+    padding: 70px 0 40px;
+    background: url("../img/Old_Trafford_soccer_stadium_4180x2747.jpg") no-repeat;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    color:white;
+}
+
+#about .overlay {
+    background-color: rgba(0,0,0,.7);
+}
+
+#about .section-title h2,
+#about .section-title span.section_description,
+#about .about-content p {
+    color:white;
 }
 
 .section-title {
@@ -141,5 +160,5 @@
 }
 
 #team {
-    margin-bottom: 30px;
+    padding: 70px 0 40px;
 }

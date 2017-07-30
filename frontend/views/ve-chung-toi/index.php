@@ -3,36 +3,39 @@
     use frontend\assets\AboutAsset;
     AboutAsset::register($this);
 
-    $this->params['breadcrumbs'][] = ['label' => $this->params['big-title'], 'url' => ['index']];
+
 ?>
     <div id="about">
-        <div class="row">
-            <div class="section-title col-sm-12">
-                <h2>Về <span>Công Việc</span></h2>
-                <h4>Ai Và tại sao</h4>
-                <span class="divide"></span>
-                <span class="section_description">Là Một trong nhữn đơn vị tiên phong cung cấp dịch vụ quản lý, đặt sân bóng trực tuyến, Với nhiều năm kinh nghiệm trong lĩnh vực trực tuyến thể thao, chúng tôi luôn luôn cung cấp những dịch vụ tốt nhất - đem lại những tiện ích tốt nhất cho người dùng với nhưng công nghệ mới nhất.</span>
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="section-title col-sm-12">
+                    <h2>Về <span>Chúng tôi</span></h2>
+                    <h4>Ai Và tại sao</h4>
+                    <span class="divide"></span>
+                    <span class="section_description">Là Một trong nhữn đơn vị tiên phong cung cấp dịch vụ quản lý, đặt sân bóng trực tuyến, Với nhiều năm kinh nghiệm trong lĩnh vực trực tuyến thể thao, chúng tôi luôn luôn cung cấp những dịch vụ tốt nhất - đem lại những tiện ích tốt nhất cho người dùng với nhưng công nghệ mới nhất.</span>
+                </div>
             </div>
-        </div>
-        <div class="row about-content">
-            <div class="col-sm-12">
-                <div class="about-row">
-                    <h5>Kinh nghiệm</h5>
-                    <p>là một trong những đơn vị đi đầu về dịch vụ thể thao online với nhiều năm kinh nghiệm, đội ngũ nhân viên nhiều năm kinh nghiệm, tự tin sử lý tất cả các trường hợp và áp dụng, cập nhận công nghệ một cách nhanh nhất.</p>
-                </div>
-                <div class="about-row">
-                    <h5>Hoạt động</h5>
-                    <p>hoạt động chủ yếu lĩnh vực cũng cấp dịch vụ website quản lý và đặt sân bóng khu vực miềm bắc, hướng phát triện quy mô cả nước</p>
-                </div>
-                <div class="about-row">
-                    <h5>ĐỘ TIN CẬY</h5>
-                    <p>tất cả hệ thông quản lý, đặt sân đều được chú trọng đến tính năng bảo mật cũng như có nhưng gói bảo hành tốt nhất cho khách hàng</p>
+            <div class="row about-content">
+                <div class="col-sm-12">
+                    <div class="about-row">
+                        <h5>Kinh nghiệm</h5>
+                        <p>là một trong những đơn vị đi đầu về dịch vụ thể thao online với nhiều năm kinh nghiệm, đội ngũ nhân viên nhiều năm kinh nghiệm, tự tin sử lý tất cả các trường hợp và áp dụng, cập nhận công nghệ một cách nhanh nhất.</p>
+                    </div>
+                    <div class="about-row">
+                        <h5>Hoạt động</h5>
+                        <p>hoạt động chủ yếu lĩnh vực cũng cấp dịch vụ website quản lý và đặt sân bóng khu vực miềm bắc, hướng phát triện quy mô cả nước</p>
+                    </div>
+                    <div class="about-row">
+                        <h5>ĐỘ TIN CẬY</h5>
+                        <p>tất cả hệ thông quản lý, đặt sân đều được chú trọng đến tính năng bảo mật cũng như có nhưng gói bảo hành tốt nhất cho khách hàng</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="team">
+    <div id="team" class="container">
         <div class="row">
             <div class="section-title col-sm-12">
                 <h2>Đội Ngũ <span>Phát Triển</span></h2>
