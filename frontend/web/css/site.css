@@ -46,6 +46,7 @@ header .center-logo {
 
 header ul li {
     float: left;
+    line-height: 150px;
 }
 
 header .pull-left {
@@ -57,9 +58,16 @@ header .pull-right ul li a i {
 }
 
 header ul li a {
-    line-height: 150px;
     text-transform: uppercase;
     padding: 0 10px;
+}
+
+header .pull-right ul li a {
+    text-transform: capitalize;
+}
+
+#main-nav li a {
+    font-weight:bold;
 }
 
 header ul li a:hover {
@@ -259,7 +267,7 @@ main {
     background-size: cover;
     position: relative;
     color:white;
-    padding: 15px 0 0;
+    padding: 15px 0;
 }
 
 .big-title h2 {
@@ -273,6 +281,7 @@ main {
     -moz-border-radius:0;
     border-radius:0;
     padding: 10px 0;
+    margin-bottom:5px;
 }
 
 .breadcrumb a {

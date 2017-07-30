@@ -24,7 +24,7 @@ class ActivateForm extends Model
     public function rules()
     {
         return [
-            ['otp', 'required', 'Mã kích hoạt bắt buộc'],
+            ['otp', 'required', 'message'=>'Mã kích hoạt bắt buộc'],
             ['otp', 'string', 'length' => 4]
         ];
     }

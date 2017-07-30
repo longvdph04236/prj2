@@ -20,6 +20,9 @@ class UserController extends \yii\web\Controller
     public function actionDangNhap()
     {
         $model = new LoginForm();
+        if(!Yii::$app->user->isGuest){
+            return $this->goHome();
+        }
         if(\Yii::$app->request->isAjax){
             return $this->renderAjax('login', [
                 'model' => $model
@@ -34,17 +37,38 @@ class UserController extends \yii\web\Controller
     public function actionDangKy()
     {
         if(!Yii::$app->user->isGuest) {
-            //return $this->goHome();
+            $user = User::findIdentity(Yii::$app->user->identity);
+            if($user->getStatus() == 'activated'){
+                return $this->goHome();
+            } else {
+                return $this->redirect(['user/kich-hoat', 'u' => $user->accessToken]);
+            }
         }
         $this->view->params['big-title'] = 'Đăng ký';
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if(Yii::$app->getUser()->login($user)){
+                    $phone = $user->phone;
+                    $code = mt_rand(0,9999);
+                    $code = str_pad((string)$code,4, "0", STR_PAD_LEFT);
+                    $mess = "Code kich hoat: ".$code;
+                    $sent = $this->smsTo($phone,$mess);
+                    if($sent == 'OK'){
+                        $cookies =  Yii::$app->response->cookies;
+                        date_default_timezone_set('Asia/Bangkok');
+                        $ci = new Cookie([
+                            'name' => 'otp',
+                            'value' => Yii::$app->security->generatePasswordHash($code),
+                            'expire' => time() + 5*60
+                        ]);
+                        $cookies->add($ci);
+                    } else {
+                        var_dump($sent);
+                    }
+
                     return $this->redirect(['user/kich-hoat','u'=>$user->accessToken]);
                 }
-            } else {
-                var_dump($user);
             }
         }
         return $this->render('signup', ['model' => $model]);
@@ -66,36 +90,32 @@ class UserController extends \yii\web\Controller
                         $user->status = 'activated';
                         if($user->save()){
                             Yii::$app->session->setFlash('activeS', 'Bạn đã kích hoạt thành công tài khoản');
-                            return Yii::$app->response->redirect('home/');
+                            Yii::$app->response->cookies->remove('otp');
+                            return Yii::$app->response->redirect(['home/index']);
                         } else {
                             echo('Can\'t save'); die;
                         }
                     } else {
-                        Yii::$app->session->setFlash('ckwrong', 'Mã không chính xác.');
-                        return false;
+                        //Yii::$app->session->setFlash('ckwrong', 'Mã không chính xác.');
+                        $model->addError('otp','Mã không chính xác.');
                     }
                 } else {
-                    Yii::$app->session->setFlash('ckend', 'Mã đã hết hạn. Vui lòng lấy mã mới.');
-                    return false;
+                    //Yii::$app->session->setFlash('ckend', 'Mã đã hết hạn. Vui lòng lấy mã mới.');
+                    $model->addError('otp','Mã đã hết hạn. Vui lòng lấy mã mới.');
                 }
             } else {
                 echo 'Người dùng không hợp lệ'; die;
             }
         }
-        $phone = $user->phone;
-        $code = mt_rand(0,9999);
-        $code = str_pad((string)$code,4, "0", STR_PAD_LEFT);
-        $mess = "Code kich hoat: ".$code;
-        if($this->smsTo($phone,$mess) == 'OK'){
-            Yii::$app->response->cookies->add(new Cookie([
-                'name' => 'otp',
-                'value' => Yii::$app->security->generatePasswordHash($code),
-                'expire' => 5 * 60 * 1000
-            ]));
-        }
 
         return $this->render('activate', ['model' => $model]);
 
+    }
+
+    public function actionDangXuat() {
+        Yii::$app->user->logout();
+
+        return $this->goHome();
     }
 
     public function actionResend(){
@@ -106,23 +126,24 @@ class UserController extends \yii\web\Controller
             $mess = "Code kich hoat: ".$code;
             $phone = $user->phone;
             if($this->smsTo($phone,$mess) == 'OK'){
+                date_default_timezone_set('Asia/Bangkok');
                 Yii::$app->response->cookies->add(new Cookie([
                     'name' => 'otp',
                     'value' => Yii::$app->security->generatePasswordHash($code),
-                    'expire' => 5 * 60 * 1000
+                    'expire' => time() + 5*60
                 ]));
                 return true;
             } else {
                 die('Không gửi được sms, hết tiền');
             }
         } else {
-            return false;
+            return $this->goHome();
         }
     }
 
     private function smsTo($phone, $mess){
-        $username = "841643959003";
-        $password = "8214";
+        $username = "84981830492";
+        $password = "2354";
         $mobile = $phone;
         $sender = "YeuBongDa";
         $message = $mess;

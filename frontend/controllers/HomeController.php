@@ -6,7 +6,7 @@ use yii\filters\AccessControl;
 
 class HomeController extends \yii\web\Controller
 {
-    public function behaviors()
+    /*public function behaviors()
     {
         return [
             'access' => [
@@ -35,14 +35,14 @@ class HomeController extends \yii\web\Controller
     /**
      * @inheritdoc
      */
-    public function actions()
+    /*public function actions()
     {
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
         ];
-    }
+    }*/
 
     public function actionIndex()
     {

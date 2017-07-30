@@ -63,8 +63,23 @@ HomeAsset::register($this);
                     </div>
                     <div class="pull-right">
                         <ul id="right-nav" class="clearfix">
-                            <li><a href="<?= Url::toRoute('user/dang-ky') ?>"><i class="fa fa-user-plus"></i> Đăng ký</a></li>
-                            <li><a href="" id="login-a-btn" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                            <?php
+                            if(Yii::$app->user->isGuest) {
+                                ?>
+                                <li><a href="<?= Url::toRoute('user/dang-ky') ?>"><i class="fa fa-user-plus"></i> Đăng
+                                        ký</a></li>
+                                <li><a href="" id="login-a-btn" data-toggle="modal" data-target="#loginModal"><i
+                                                class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                                <?php
+                            } else {
+                                $user = \common\models\User::findIdentity(Yii::$app->user->identity);
+                                ?>
+                                <li><a href=""><i class="fa fa-user"></i> <?= $user->fullname?></a></li>
+                                <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i
+                                                class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                            <?php
+                            }
+                            ?>
                         </ul>
                     </div>
                 </div>

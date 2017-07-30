@@ -174,6 +174,10 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->authKey;
     }
 
+    public function getStatus(){
+        return $this->status;
+    }
+
     /**
      * @inheritdoc
      */

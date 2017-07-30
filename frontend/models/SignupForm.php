@@ -65,7 +65,7 @@ class SignupForm extends Model
         $user = new User();
         $user->username = $this->username;
         $user->fullname = $this->fullName;
-        $user->phone = $this->phone;
+        $user->phone = (substr($this->phone,0,1) == '0')? substr_replace($this->phone,'84',0,1):ltrim($this->phone,'+');
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();
