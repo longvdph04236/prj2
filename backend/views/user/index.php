@@ -1,9 +1,9 @@
 <?php
 
-     use app\models\Users;
      use yii\widgets\LinkPager;
      use yii\widgets\Breadcrumbs;
      use yii\helpers\Html;
+     use yii\helpers\Url;
 
      $this->title = 'User';
      $this->params['breadcrumbs'][] = $this->title;
@@ -18,8 +18,8 @@
            <div class="panel-body">
                <table class="table">
                    <thead>
-                        <th>Avatar</th>
                         <th>ID</th>
+                        <th>Avatar</th>
                         <th>User Name</th>
                         <th>Email</th>
                         <th>Phone</th>
@@ -29,6 +29,10 @@
                         <?php
                             foreach($model as $key=>$value) { ?>
                                 <tr>
+                                    <td>
+                                        <?= $value->id ?>
+                                    </td>
+
                                     <td>
                                         <?php
                                             if($value->avatar == '') {
@@ -55,10 +59,6 @@
                                     </td>
 
                                     <td>
-                                        <?= $value->id ?>
-                                    </td>
-
-                                    <td>
                                         <?= $value->username ?>
                                     </td>
 
@@ -71,11 +71,24 @@
                                     </td>
 
                                     <td>
-                                        <?= $value->status ?>
+                                        <form id="f<?=$value->id;?>" action="<?= Url::toRoute('user/update')?>" method="post">
+                                            <select name="status" class="status">
+                                                <?php
+                                                    if($value->status == 'activated')  { ?>
+                                                        <option selected value="<?= $value->status ;?>"> <?=
+                                                            $value->status?></option>
+                                                        <option value="inactive"> inactive</option>
+                                                    <?php } else { ?>
+                                                        <option selected value="<?= $value->status ;?>"> <?= $value->status?></option>
+                                                        <option value="activated">activated</option>
+                                                   <?php } ?>
+                                                ?>
+
+                                            </select>
+                                        </form>
                                     </td>
                                     <td>
                                         <?= html::a('<span class="glyphicon glyphicon-eye-open"></span>',['view','id'=>$value->id])?>
-                                        <?= html::a('<span class="glyphicon glyphicon-pencil"></span>',['update','id'=>$value->id])?>
                                         <?= html::a('<span class="glyphicon glyphicon-trash"></span>',['delete','id'=>$value->id],[
                                             'data'=>[
                                                 'confirm'=>'bạn có chắc chắn muốn xóa : ' .$value->username,
@@ -90,7 +103,7 @@
            </div>
      </div>
     <div class="text-center">
-        <?php
+        <?=
             LinkPager::widget([
                'pagination' => $pagination
             ]);

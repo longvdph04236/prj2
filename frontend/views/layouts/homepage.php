@@ -100,6 +100,7 @@ HomeAsset::register($this);
                         <ul class="nav nav-tabs" role="tablist">
                             <li role="presentation" class="active"><a href="#by-time" aria-controls="home" role="tab" data-toggle="tab">Tìm kiếm theo giờ</a></li>
                             <li role="presentation"><a href="#by-name" aria-controls="home" role="tab" data-toggle="tab">Tìm kiếm theo tên</a></li>
+                            <li role="presentation"><a href="#by-id" aria-controls="home" role="tab" data-toggle="tab">Tra mã đặt sân</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content tabs">
@@ -137,6 +138,16 @@ HomeAsset::register($this);
                                         <select class="form-control" name="city">
                                             <option value="0">Quận/huyện</option>
                                         </select>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div role="tabpanel" class="tab-pane fade" id="by-id">
+                                <div class="row">
+                                    <div class="col-md-10">
+                                        <input class="form-control" type="text" placeholder="Mã tra cứu" name="name">
                                     </div>
                                     <div class="col-md-2">
                                         <button class="btn btn-primary" type="submit">Tìm kiếm</button>
