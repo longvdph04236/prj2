@@ -12,38 +12,23 @@ use yii\web\Cookie;
 
 class UserController extends \yii\web\Controller
 {
-    public $successUrl = 'Success';
-    public $newUser;
-    public function actions()
-    {
-        return [
-            'auth' => [
-                'class' => 'yii\authclient\AuthAction',
-                'successCallback' => [$this, 'successCallback'],
-            ]
-        ];
-    }
-
-    public function successCallback($client)
-    {
-        $attributes = $client->getUserAttributes();
-        // user login or signup comes here
-        /*
-        Checking facebook email registered yet?
-        Maxsure your registered email when login same with facebook email
-        die(print_r($attributes));
-        */
-
-
-        $user = User::findOne(['email'=>$attributes['email']]);
-        if(!empty($user)){
-            Yii::$app->user->login($user);
-        }else{
-            $newUser = new SignupForm();
-            $newUser->username = $attributes['id'];
-            $newUser->email = $attributes['email'];
-            $newUser->fullName = $attributes['name'];
-            $this->successUrl = Url::toRoute(['user/dang-ky']);
+    public function actionFb(){
+        if(Yii::$app->request->isAjax){
+            $id = Yii::$app->request->post('id');
+            $fullName = Yii::$app->request->post('name');
+            $email = Yii::$app->request->post('email');
+            $ava = Yii::$app->request->post('ava');
+            $user = User::findOne(['fid'=>$id]);
+            if(isset($user)){
+                Yii::$app->user->login($user);
+                return true;
+            } else {
+                Yii::$app->session->setFlash('uid',$id);
+                Yii::$app->session->setFlash('fn',$fullName);
+                Yii::$app->session->setFlash('em',$email);
+                Yii::$app->session->setFlash('ava',$ava);
+                return false;
+            }
         }
     }
 
@@ -86,20 +71,20 @@ class UserController extends \yii\web\Controller
             }
         }
         $this->view->params['big-title'] = 'Đăng ký';
-        if(!isset($this->newUser)){
-            $model = new SignupForm();
-        } else {
-            $model = $this->newUser;
-            Yii::$app->session->setFlash('continue','Điền thêm thông tin để tiếp tục');
-        }
+
+        $model = new SignupForm();
+
         if ($model->load(Yii::$app->request->post())) {
+            //var_dump($model);die;
             if ($user = $model->signup()) {
                 if(Yii::$app->getUser()->login($user)){
                     $phone = $user->phone;
                     $code = mt_rand(0,9999);
                     $code = str_pad((string)$code,4, "0", STR_PAD_LEFT);
                     $mess = "Code kich hoat: ".$code;
+                    die;
                     $sent = $this->smsTo($phone,$mess);
+                    //var_dump($sent);die;
                     if($sent == 'OK'){
                         $cookies =  Yii::$app->response->cookies;
                         date_default_timezone_set('Asia/Bangkok');
@@ -110,7 +95,7 @@ class UserController extends \yii\web\Controller
                         ]);
                         $cookies->add($ci);
                     } else {
-                        var_dump($sent);
+                        var_dump($sent);die;
                     }
 
                     return $this->redirect(['user/kich-hoat','u'=>$user->accessToken]);
@@ -188,7 +173,7 @@ class UserController extends \yii\web\Controller
     }
 
     private function smsTo($phone, $mess){
-        $username = "0963468110 ";
+        $username = "84963468110";
         $password = "7124";
         $mobile = $phone;
         $sender = "YeuBongDa";

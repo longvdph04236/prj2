@@ -301,3 +301,13 @@ main {
     background-color: #00a600;
     color:white !important;
 }
+
+.header-user-photo {
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    border:1px solid white;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
+}

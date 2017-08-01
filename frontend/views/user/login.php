@@ -6,7 +6,7 @@ use yii\helpers\Html;
 
 <?php $form = ActiveForm::begin(['id' => 'login-form']); ?>
 
-<?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => 'Tên đăng nhập'])->label(false) ?>
+<?= $form->field($model, 'username')->textInput(['placeholder' => 'Tên đăng nhập'])->label(false) ?>
 
 <?= $form->field($model, 'password')->passwordInput(['placeholder' => 'Mật khẩu'])->label(false) ?>
 

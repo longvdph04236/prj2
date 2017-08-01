@@ -35,15 +35,45 @@ HomeAsset::register($this);
 
     };
 
+    function statusChangeCallback(response) {
+        if (response.status === 'connected') {
+            FB.api('/me?fields=name,picture,email', function(response) {
+                $.ajax({
+                    url: '<?= Url::toRoute('user/fb')?>',
+                    data: {id:response.id, name: response.name, email: response.email, ava: response.picture.data.url},
+                    method: 'Post',
+                    success: function(data){
+                        if(data){
+                            window.location.reload();
+                        } else {
+                            window.location.href = '<?= Url::toRoute(['user/dang-ky'])?>'
+                        }
+                    }
+                })
+            });
+        } else if (response.status === 'not_authorized') {
+            console.log('not_auth');
+        } else {
+            console.log('user not login to fb');
+        }
+    }
+
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
+        js = d.createElement(s); js.id = id; js.async = true;
         js.src = "//connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.10";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+
+    function checkLoginState() {
+        FB.getLoginStatus(function(response) {
+            statusChangeCallback(response);
+        });
+    }
 </script>
 <div class="full-screen">
+    <div id="background_video" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=0N6MG8xb2B8',containment:'#background_video',startAt:39.7,mute:true,autoPlay:true,loop:true,opacity:1}"></div>
     <div class="bg-full-screen"></div>
     <header class="transparent-bg">
         <div class="container">
@@ -74,8 +104,13 @@ HomeAsset::register($this);
                                 <?php
                             } else {
                                 $user = \common\models\User::findIdentity(Yii::$app->user->identity);
+                                if(substr($user->avatar,0,8) == 'https://'){
+                                    $link = $user->avatar;
+                                } else {
+                                    $link = Yii::$app->params['appFolder'].'/uploads/images/'.$user->avatar;
+                                }
                                 ?>
-                                <li><a href=""><i class="fa fa-user"></i> <?= $user->fullname?></a></li>
+                                <li><a href=""><img class="header-user-photo" src="<?= $link ?>" alt=""> <?= $user->fullname?></a></li>
                                 <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i
                                                 class="fa fa-sign-out"></i> Đăng xuất</a></li>
                                 <?php
@@ -184,7 +219,7 @@ HomeAsset::register($this);
             </div>
             <div class="modal-body">
                 <div class="login-form-container">
-                    <div class="fb-login-button" data-width="300" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
+                    <div class="fb-login-button" data-width="300" data-scope="email, public_profile" onlogin="checkLoginState();" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
                     <span>hoặc</span>
                     <div class="login-form-2" data-content="<?= Url::toRoute('user/dang-nhap',true)?>">
 
