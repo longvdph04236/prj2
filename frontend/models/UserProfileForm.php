@@ -23,18 +23,24 @@ class UserProfileForm extends Model
         return [
             [['password','newPass','confirmPassword'], 'required', 'message'=>'Bắt buộc'],
             [['password','newPass','confirmPassword'], 'string', 'min' => 6,'message'=>'Mật khẩu có ít nhất 6 ký tự'],
-            ['password', 'compare', 'compareAttribute' => 'confirmPassword', 'message' => 'Mật khẩu không khớp'],
-            ['confirmPassword', 'compare', 'compareAttribute' => 'password', 'message' => 'Mật khẩu không khớp'],
+            ['newPass', 'compare', 'compareAttribute' => 'confirmPassword', 'message' => 'Mật khẩu không khớp'],
+            ['confirmPassword', 'compare', 'compareAttribute' => 'newPass', 'message' => 'Mật khẩu không khớp'],
         ];
     }
 
     public function update($id){
         if($this->validate()){
             $user = User::findOne($id);
-            $user->username = $this->username;
-            $user->fullname = $this->fullName;
-            $user->email = $this->email;
-
+            if(\Yii::$app->security->validatePassword($this->password,$user->password)){
+                $user->password = \Yii::$app->security->generatePasswordHash($this->newPass);
+                if($user->save()){
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        } else {
+            var_dump($this->errors);die;
         }
     }
 }

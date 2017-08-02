@@ -2,12 +2,14 @@
 /* @var $this yii\web\View */
 $this->params['breadcrumbs'][] = ['label' => 'Hồ sơ người dùng', 'url' => ['index']];
 use yii\helpers\Html;
-use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
 use conquer\toastr\ToastrWidget;
 
 if(Yii::$app->session->has('s')){
     ToastrWidget::widget(['message'=>Yii::$app->session->getFlash('s')]);
+}
+if(Yii::$app->session->has('f')){
+    ToastrWidget::widget(['type'=>'error','message'=>Yii::$app->session->getFlash('f')]);
 }
 
 if(substr($model->avatar,0,8) == 'https://'){

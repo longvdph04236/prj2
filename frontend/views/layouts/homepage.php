@@ -73,7 +73,7 @@ HomeAsset::register($this);
     }
 </script>
 <div class="full-screen">
-    <div id="background_video" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=0N6MG8xb2B8',containment:'#background_video',startAt:39.7,mute:true,autoPlay:true,loop:true,opacity:1}"></div>
+    <div id="background_video" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=fYlaY14BhsM',containment:'#background_video',quality:'hd1080',startAt:39.7,mute:true,autoPlay:true,loop:true,opacity:1}"></div>
     <div class="bg-full-screen"></div>
     <header class="transparent-bg">
         <div class="container">

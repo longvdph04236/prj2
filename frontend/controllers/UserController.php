@@ -61,6 +61,16 @@ class UserController extends \yii\web\Controller
                         return $this->redirect(['user/index']);
                     }
                 }
+            } else if(isset($post['password-update-button'])){
+                if($upForm->load(Yii::$app->request->post())){
+                    if($upForm->update(Yii::$app->user->identity->getId())){
+                        Yii::$app->session->setFlash('s','Mật khẩu đã được cập nhật thành công');
+                        return $this->redirect(['user/index']);
+                    } else {
+                        Yii::$app->session->setFlash('f','Sai mật khẩu');
+                        return $this->redirect(['user/index']);
+                    }
+                }
             }
         }
         return $this->render('index',['model'=>$userModel,'upForm'=>$upForm]);
