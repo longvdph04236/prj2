@@ -35,21 +35,22 @@
 
                                     <td>
                                         <?php
-                                            if($value->avatar == '') {
-                                                echo Html::img(Yii::$app->params['appFolder'].'/uploads/images/img_avatar3.png',
+                                            if(substr($value->avatar,0,8) == 'https://') {
+                                                echo Html::img( $value->avatar,
                                                     [  'style' => [
-                                                            'width'=>'60px',
-                                                            'height'=>'60px',
+                                                            'width'=>'40px',
+                                                            'height'=>'40px',
                                                             'border-radius'=>'50%'
                                                         ]
                                                     ]
                                                 );
                                             }else {
-                                                echo Html::img(Yii::$app->params['appFolder'].'/uploads/images/img_avatar3.png',
+                                                echo Html::img(Yii::$app->params['appFolder'].'/uploads/images/'
+                                                    .$value->avatar,
                                                     [
                                                         'style' => [
-                                                            'width'=>'60px',
-                                                            'height'=>'60px',
+                                                            'width'=>'40px',
+                                                            'height'=>'40px',
                                                             'border-radius'=>'50%'
                                                         ]
                                                     ]

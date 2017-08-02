@@ -13,7 +13,7 @@ class UserController extends Controller
 {
     public function actionIndex()
     {
-        $this->view->blocks['content-header'] = 'Users Manager';
+        $this->view->blocks['content-header'] = 'Quản lý tài khoản';
         $model = new Users();
         $query = $model->getCount();
         $count = $query->count();

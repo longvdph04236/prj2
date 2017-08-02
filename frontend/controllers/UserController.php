@@ -6,6 +6,7 @@ use common\models\LoginForm;
 use common\models\User;
 use frontend\models\ActivateForm;
 use frontend\models\SignupForm;
+use frontend\models\ResetPasswordForm;
 use Yii;
 use yii\helpers\Url;
 use yii\web\Cookie;
@@ -173,6 +174,7 @@ class UserController extends \yii\web\Controller
     }
 
     private function smsTo($phone, $mess){
+
         $username = "84963468110";
         $password = "7124";
         $mobile = $phone;

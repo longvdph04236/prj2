@@ -4,6 +4,7 @@ namespace frontend\controllers;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+
 class HomeController extends \yii\web\Controller
 {
     /*public function behaviors()
@@ -49,4 +50,6 @@ class HomeController extends \yii\web\Controller
         $this->layout = 'homepage';
         return $this->render('index');
     }
+
+
 }

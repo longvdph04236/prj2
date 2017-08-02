@@ -33,7 +33,7 @@
                     'id',
                     [
                         'attribute'=>'avatar',
-                        'value'=> yii::$app->params['appFolder'].'/uploads/images/img_avatar3.png',
+                        'value'=> yii::$app->params['appFolder'].'/uploads/images/user.png',
                         'format'=>[
                             'image',
                             [

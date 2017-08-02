@@ -32,7 +32,16 @@
                 'items' => [
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
                     ['label' => 'User', 'icon' => 'users', 'url' => ['user/index']],
-                    ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                    [
+                        'label' => 'Quản Lý Khu Vực',
+                        'icon' => 'map-marker',
+                        'url' => '#',
+                        'items'=> [
+                             ['label'=>'Quản lý Thành phố','icon'=>'location-arrow','url'=>['city/index'],],
+                             ['label'=>'Quản lý Quận Huyện','icon'=>'street-view','url'=>['district/index'],],
+                        ]
+
+                    ],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Same tools',
