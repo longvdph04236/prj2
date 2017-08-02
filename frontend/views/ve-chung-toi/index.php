@@ -45,7 +45,7 @@
         <div class="row">
             <div class="member col-sm-4">
                 <div class="bt">
-                    <img src="<?= Yii::getAlias('@web')?>/img/team_1.jpg" alt="">
+                    <img src="<?= Yii::getAlias('@web')?>/img/avatar-long.jpg" alt="">
                     <div class="member-name">
                         <a href="#">Vũ Long</a>
                     </div>
@@ -56,7 +56,7 @@
             </div>
             <div class="member col-sm-4">
                 <div class="bt">
-                    <img src="<?= Yii::getAlias('@web')?>/img/team_3.jpg" alt="">
+                    <img src="<?= Yii::getAlias('@web')?>/img/avatar-hoa.jpg" alt="">
                     <div class="member-name">
                         <a href="#">Nguyễn Hóa</a>
                     </div>
@@ -67,7 +67,7 @@
             </div>
             <div class="member col-sm-4">
                 <div class="bt">
-                    <img src="<?= Yii::getAlias('@web')?>/img/team_4.jpg" alt="">
+                    <img src="<?= Yii::getAlias('@web')?>/img/avatar-quan.jpg" alt="" width="370" height="370">
                     <div class="member-name">
                         <a href="#">Hồng Quân</a>
                     </div>

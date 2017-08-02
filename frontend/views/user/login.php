@@ -19,7 +19,7 @@ use yii\helpers\Html;
 </div>
 
 <div class="flex-form-item">
-    <?= Html::a('Quên mật khẩu?', ['site/request-password-reset']) ?>
+    <?= Html::a('Quên mật khẩu?', ['user/request-password-reset']) ?>
     <?= Html::a('Chưa có tài khoản?', ['user/dang-ky']) ?>
 </div>
 

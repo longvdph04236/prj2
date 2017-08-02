@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+
 class HomeController extends \yii\web\Controller
 {
     public function actionIndex()
@@ -9,4 +10,6 @@ class HomeController extends \yii\web\Controller
         $this->layout = 'homepage';
         return $this->render('index');
     }
+
+
 }

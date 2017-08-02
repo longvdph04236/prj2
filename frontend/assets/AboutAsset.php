@@ -13,6 +13,7 @@ class AboutAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/about.css',
+        'css/responsive-main.css',
     ];
     public $js = [
         'js/bootstrap.min.js',

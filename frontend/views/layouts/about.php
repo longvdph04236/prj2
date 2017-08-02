@@ -6,7 +6,7 @@
 use frontend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
-use yii\widgets\Breadcrumbs;
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -61,39 +61,35 @@ AppAsset::register($this);
                 </div>
                 <div class="pull-right">
                     <ul id="right-nav" class="clearfix">
-                        <li><a href="<?= Url::toRoute('user/dang-ky') ?>"><i class="fa fa-user-plus"></i> Đăng ký</a></li>
-                        <li><a href="" id="login-a-btn" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                        <?php
+                        if(Yii::$app->user->isGuest) {
+                            ?>
+                            <li><a href="<?= Url::toRoute('user/dang-ky') ?>"><i class="fa fa-user-plus"></i> Đăng
+                                    ký</a></li>
+                            <li><a href="" id="login-a-btn" data-toggle="modal" data-target="#loginModal"><i
+                                            class="fa fa-sign-in"></i> Đăng nhập</a></li>
+                            <?php
+                        } else {
+                            $user = \common\models\User::findIdentity(Yii::$app->user->identity);
+                            ?>
+                            <li><a href=""><i class="fa fa-user"></i> <?= $user->fullname?></a></li>
+                            <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i
+                                            class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                            <?php
+                        }
+                        ?>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </header>
-<div class="big-title">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h2><?php echo isset($this->params['big-title'])? $this->params['big-title']:''?></h2>
-                <?=
-                Breadcrumbs::widget([
-                    'homeLink' => [
-                        'label' => Yii::t('yii', 'Trang chủ'),
-                        'url' => Yii::$app->homeUrl,
-                    ],
-                    'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-                   ]) 
-                ?>
-            </div>
-        </div>
-    </div>
-</div>
 <main>
-    <div class="container">
+
 
             <?= $content; ?>
 
-    </div>
+
 </main>
 <footer>
     <div class="container">
