@@ -10,7 +10,6 @@ namespace common\models;
 
 
 use Yii;
-use yii\base\NotSupportedException;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -102,7 +101,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['id' => $id]);
     }
 
     /**
@@ -122,6 +121,11 @@ class User extends ActiveRecord implements IdentityInterface
     public static function findByUsername($username)
     {
         return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    public static function findAdmin()
+    {
+        return static::findOne(['type' => 'admin', 'status' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -173,6 +177,10 @@ class User extends ActiveRecord implements IdentityInterface
     public function getAuthKey()
     {
         return $this->authKey;
+    }
+
+    public function getStatus(){
+        return $this->status;
     }
 
     /**

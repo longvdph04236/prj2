@@ -16,8 +16,6 @@ class AboutAsset extends AssetBundle
         'css/responsive-main.css',
     ];
     public $js = [
-        'js/bootstrap.min.js',
-        'js/main.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

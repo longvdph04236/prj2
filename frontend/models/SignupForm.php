@@ -16,6 +16,8 @@ class SignupForm extends Model
     public $type;
     public $fullName;
     public $phone;
+    public $id;
+    public $ava;
 
     /**
      * @inheritdoc
@@ -48,6 +50,8 @@ class SignupForm extends Model
 
             ['phone', 'required', 'message' => 'Số điện thoại bắt buộc'],
             ['phone', 'match', 'pattern' => '/^((0|\+84)1[2689]|(0|\+84)9)[0-9]{8}$/'],
+
+            [['id','ava'], 'required']
         ];
     }
 
@@ -63,9 +67,11 @@ class SignupForm extends Model
         }
         
         $user = new User();
+        if(isset($this->id)){$user->fid = $this->id;}
+        if(isset($this->ava)){$user->avatar = $this->ava;}
         $user->username = $this->username;
         $user->fullname = $this->fullName;
-        $user->phone = $this->phone;
+        $user->phone = (substr($this->phone,0,1) == '0')? substr_replace($this->phone,'84',0,1):ltrim($this->phone,'+');
         $user->email = $this->email;
         $user->setPassword($this->password);
         $user->generateAuthKey();

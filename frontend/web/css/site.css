@@ -15,12 +15,15 @@ ul {
     margin: 0;
 }
 
-a:focus, a:active, a:hover , a:visited {
+a:focus, a:active, a:hover , a:visited,a {
     text-decoration: none;
+    color:black;
+    outline: none;
 }
 
 a:hover {
-    color: #00df00 !important;
+    color: #39B54A !important;
+    text-decoration: none;
 }
 
 header {
@@ -46,6 +49,7 @@ header .center-logo {
 
 header ul li {
     float: left;
+    line-height: 150px;
 }
 
 header .pull-left {
@@ -57,14 +61,21 @@ header .pull-right ul li a i {
 }
 
 header ul li a {
-    line-height: 150px;
     text-transform: uppercase;
     padding: 0 10px;
 }
 
+header .pull-right ul li a {
+    text-transform: capitalize;
+}
+
+#main-nav li a {
+    font-weight:bold;
+}
+
 header ul li a:hover {
     text-decoration: none;
-    color: #00df00;
+    color: #39B54A;
 }
 
 header > div, header > div > div,
@@ -259,7 +270,7 @@ main {
     background-size: cover;
     position: relative;
     color:white;
-    padding: 15px 0 0;
+    padding: 15px 0;
 }
 
 .big-title h2 {
@@ -273,8 +284,30 @@ main {
     -moz-border-radius:0;
     border-radius:0;
     padding: 10px 0;
+    margin-bottom:5px;
 }
 
 .breadcrumb a {
     color:white;
+}
+
+.btn.btn-default {
+    background-color: #39B54A;
+    border-color: #00a600;
+    color:white !important;
+}
+
+.btn.btn-default:hover {
+    background-color: #00a600;
+    color:white !important;
+}
+
+.header-user-photo {
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    border:1px solid white;
+    width: 35px;
+    height: 35px;
+    margin-right: 5px;
 }

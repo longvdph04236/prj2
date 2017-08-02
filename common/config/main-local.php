@@ -3,10 +3,14 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=files.000webhost.com;dbname=Id2283305_mng_stadium',
-            'username' => 'Id2283305_root',
-            'password' => 'hoanvph04233',
+            'dsn' => 'mysql:host=johnny.heliohost.org;dbname=samwicky_timsan',
+            'username' => 'samwicky_admin',
+            'password' => '18101911',
             'charset' => 'utf8',
+            /*'dsn' => 'mysql:host=mysql.hostinger.vn;dbname=u107395002_db',
+            'username' => 'u107395002_admin',
+            'password' => '18101911',
+            'charset' => 'utf8',*/
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

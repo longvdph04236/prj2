@@ -16,7 +16,11 @@ class HomeAsset extends AssetBundle
         'css/responsive-main.css',
     ];
     public $js = [
+        'js/jquery.mb.YTPlayer.js'
     ];
     public $depends = [
+    ];
+    public $jsOptions = [
+        'async' => 'async',
     ];
 }

@@ -6,7 +6,7 @@ return [
         'user' => [
             'class' => 'yii\web\User',
             'identityClass' => 'common\models\User',
-            //'enableAutoLogin' => true
+            'enableAutoLogin' => true
         ],
     ],
 ];

@@ -8,16 +8,22 @@
 
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
+$v = $model->getAttributes(['aT']);
+$this->registerJsFile('@web/js/resendcode.js',['depends'=>[\frontend\assets\AppAsset::className()]]);
 ?>
 
 <div class="row">
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6">
+        <p>Mã kích hoạt đã được gửi đến điện thoại của bạn. Mã sẽ hết hạn sau 5 phút. Sau 5 phút, vui lòng <a id="resend-link"
+                    href="<?= \yii\helpers\Url::toRoute('user/resend') ?>">lấy mã mới</a>.</p>
 
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'layout' => 'horizontal']); ?>
 
         <?= $form->field($model, 'otp')->textInput()->label('Mã kích hoạt:') ?>
 
-        <?= Html::submitButton('Đăng nhập', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+        <?= $form->field($model, 'aT')->hiddenInput(['name' => 'aT', 'value' => $v['aT']])->label(false) ?>
+
+        <?= Html::submitButton('Kích hoạt', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
 
         <?php ActiveForm::end(); ?>
     </div>
