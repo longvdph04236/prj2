@@ -110,7 +110,6 @@ class UserController extends \yii\web\Controller
                     $code = mt_rand(0,9999);
                     $code = str_pad((string)$code,4, "0", STR_PAD_LEFT);
                     $mess = "Code kich hoat: ".$code;
-                    die;
                     $sent = $this->smsTo($phone,$mess);
                     //var_dump($sent);die;
                     if($sent == 'OK'){
