@@ -310,4 +310,83 @@ main {
     width: 35px;
     height: 35px;
     margin-right: 5px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-user-photo img {
+    position: absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+}
+
+.footer-logo img {
+    width: 100%;
+    margin-top: 60px;
+}
+
+.action-group {
+    text-align: center;
+}
+
+.profile-pic-container {
+    position: relative;
+    border:1px solid darkgray;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    overflow: hidden;
+    width: 150px;
+    height:150px;
+}
+
+.profile-pic-container img {
+    width: 100%;
+    height:auto;
+    display: block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.profile-pic-container button {
+    border:none;
+    background: none;
+    color:white;
+    position: absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.profile-pic-container .overlay {
+    display: none;
+}
+
+.profile-pic-container:hover .overlay,
+.profile-pic-container:hover button {
+    display: block;
+}
+
+.profile-pic-container input[type=file] {
+    visibility: hidden;
 }

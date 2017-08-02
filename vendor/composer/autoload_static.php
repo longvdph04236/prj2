@@ -41,6 +41,7 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         ),
         'c' => 
         array (
+            'conquer\\toastr\\' => 15,
             'cebe\\markdown\\' => 14,
         ),
         'W' => 
@@ -135,6 +136,10 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         'dmstr\\' => 
         array (
             0 => __DIR__ . '/..' . '/dmstr/yii2-adminlte-asset',
+        ),
+        'conquer\\toastr\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/conquer/toastr',
         ),
         'cebe\\markdown\\' => 
         array (

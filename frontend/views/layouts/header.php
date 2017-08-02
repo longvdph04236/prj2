@@ -85,7 +85,7 @@ use yii\helpers\Url;
                                 $link = Yii::$app->params['appFolder'].'/uploads/images/'.$user->avatar;
                             }
                             ?>
-                            <li><a href=""><img class="header-user-photo" src="<?= $link ?>" alt=""> <?= $user->fullname?></a></li>
+                            <li><a href="<?= Url::toRoute('user/') ?>"><span class="header-user-photo"><img src="<?= $link ?>" alt=""></span> <?= $user->fullname?></a></li>
                             <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i
                                         class="fa fa-sign-out"></i> Đăng xuất</a></li>
                             <?php

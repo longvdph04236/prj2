@@ -80,7 +80,7 @@ HomeAsset::register($this);
             <div class="row">
                 <div class="col-md-12 clearfix">
                     <div class="center-logo">
-                        <a href="#"><img src="<?= Yii::getAlias('@web')?>/img/logo.png" alt=""></a>
+                        <a href="<?= Url::toRoute('home/') ?>"><img src="<?= Yii::getAlias('@web')?>/img/logo.png" alt=""></a>
                     </div>
                     <div class="pull-left">
                         <nav id="main-nav">
@@ -110,7 +110,7 @@ HomeAsset::register($this);
                                     $link = Yii::$app->params['appFolder'].'/uploads/images/'.$user->avatar;
                                 }
                                 ?>
-                                <li><a href=""><img class="header-user-photo" src="<?= $link ?>" alt=""> <?= $user->fullname?></a></li>
+                                <li><a href="<?= Url::toRoute('user/') ?>"><span class="header-user-photo"><img src="<?= $link ?>" alt=""></span> <?= $user->fullname?></a></li>
                                 <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i
                                                 class="fa fa-sign-out"></i> Đăng xuất</a></li>
                                 <?php

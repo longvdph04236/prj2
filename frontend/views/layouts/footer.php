@@ -5,7 +5,7 @@ use yii\authclient\widgets\AuthChoice;
 <footer>
     <div class="container">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-4">
                 <div class="footer-col-heading">
                     <h4>Về chúng tôi</h4>
                 </div>
@@ -28,7 +28,7 @@ use yii\authclient\widgets\AuthChoice;
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="footer-col-heading">
                     <h4>Liên hệ</h4>
                 </div>
@@ -42,6 +42,9 @@ use yii\authclient\widgets\AuthChoice;
                         <a href="#"><i class="fa fa-google-plus"></i></a>
                     </p>
                 </div>
+            </div>
+            <div class="col-md-2 footer-logo">
+                <a href="<?= Url::toRoute('home/') ?>"><img src="<?= Yii::getAlias('@web')?>/img/logo.png" alt=""></a>
             </div>
         </div>
         <div class="row">

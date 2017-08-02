@@ -93,4 +93,13 @@ return array (
       '@yii/authclient' => $vendorDir . '/yiisoft/yii2-authclient',
     ),
   ),
+  'conquer/toastr' => 
+  array (
+    'name' => 'conquer/toastr',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@conquer/toastr' => $vendorDir . '/conquer/toastr',
+    ),
+  ),
 );

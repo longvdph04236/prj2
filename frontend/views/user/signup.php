@@ -44,7 +44,7 @@ if(isset($model->id)) {
 
 <div class="form-group">
     <div class="col-sm-6 col-sm-offset-3">
-        <?= Html::submitButton('Đăng ký', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+        <?= Html::submitButton('Đăng ký', ['class' => 'btn btn-primary', 'name' => 'signup-button']) ?>
     </div>
 </div>
 

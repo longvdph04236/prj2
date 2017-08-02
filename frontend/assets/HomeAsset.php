@@ -15,7 +15,8 @@ class HomeAsset extends AssetBundle
         'css/home.css'
     ];
     public $js = [
-        'js/jquery.mb.YTPlayer.js'
+        'js/jquery.mb.YTPlayer.js',
+        'js/configYT.js'
     ];
     public $depends = [
     ];
