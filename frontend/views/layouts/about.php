@@ -22,7 +22,6 @@ AppAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
-
 <?php $this->beginContent('@app/views/layouts/header.php'); ?>
 <?php $this->endContent(); ?>
 <main>
@@ -32,6 +31,7 @@ AppAsset::register($this);
 
 
 </main>
+
 <?php $this->beginContent('@app/views/layouts/footer.php'); ?>
 <?php $this->endContent(); ?>
 <?php $this->endBody() ?>

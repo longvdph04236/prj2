@@ -16,6 +16,7 @@ class AppAsset extends AssetBundle
         'css/font-awesome.css',
         'https://fonts.googleapis.com/css?family=Lobster&amp;subset=vietnamese',
         'css/site.css',
+        'css/responsive-main.css',
     ];
     public $js = [
         'js/bootstrap.min.js',

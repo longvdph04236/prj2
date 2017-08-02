@@ -222,7 +222,6 @@ HomeAsset::register($this);
                     <div class="fb-login-button" data-width="300" data-scope="email, public_profile" onlogin="checkLoginState();" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
                     <span>hoặc</span>
                     <div class="login-form-2" data-content="<?= Url::toRoute('user/dang-nhap',true)?>">
-
                     </div>
                 </div>
             </div>

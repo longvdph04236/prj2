@@ -12,7 +12,8 @@ class HomeAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/home.css'
+        'css/home.css',
+        'css/responsive-main.css',
     ];
     public $js = [
         'js/jquery.mb.YTPlayer.js',
