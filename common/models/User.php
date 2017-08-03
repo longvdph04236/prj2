@@ -12,6 +12,7 @@ namespace common\models;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use common\models\Stadiums;
 
 /**
  * This is the model class for table "users".

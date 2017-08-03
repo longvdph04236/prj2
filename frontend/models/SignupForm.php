@@ -51,7 +51,7 @@ class SignupForm extends Model
             ['phone', 'required', 'message' => 'Số điện thoại bắt buộc'],
             ['phone', 'match', 'pattern' => '/^((0|\+84)1[2689]|(0|\+84)9)[0-9]{8}$/'],
 
-            [['id','ava'], 'required']
+            [['id','ava'], 'safe']
         ];
     }
 
@@ -63,6 +63,7 @@ class SignupForm extends Model
     public function signup()
     {
         if (!$this->validate()) {
+            var_dump($this->errors);
             return null;
         }
         

@@ -1,52 +1,22 @@
 <?php
 
 namespace frontend\controllers;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
+
+use common\models\User;
+use Yii;
 
 
 class HomeController extends \yii\web\Controller
 {
-    /*public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'actions' => ['login', 'error'],
-                        'allow' => true,
-                    ],
-                    [
-                        'actions' => ['logout', 'index'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    /*public function actions()
-    {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
-    }*/
 
     public function actionIndex()
     {
+        if(!Yii::$app->user->isGuest){
+            $user = User::findOne(Yii::$app->user->identity->getId());
+            if($user->status != 'activated'){
+                return $this->redirect(['user/kich-hoat','u'=>$user->accessToken]);
+            }
+        }
         $this->layout = 'homepage';
         return $this->render('index');
     }

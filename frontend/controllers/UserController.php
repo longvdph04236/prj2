@@ -120,8 +120,8 @@ class UserController extends \yii\web\Controller
                     $code = mt_rand(0,9999);
                     $code = str_pad((string)$code,4, "0", STR_PAD_LEFT);
                     $mess = "Code kich hoat: ".$code;
-                    $sent = $this->smsTo($phone,$mess);
-                    //var_dump($sent);die;
+                    //$sent = $this->smsTo($phone,$mess);
+                    $sent = 'OK';
                     if($sent == 'OK'){
                         $cookies =  Yii::$app->response->cookies;
                         date_default_timezone_set('Asia/Bangkok');
@@ -144,7 +144,8 @@ class UserController extends \yii\web\Controller
 
     public function actionKichHoat()
     {
-        if(Yii::$app->user->isGuest) {
+        $user = User::findOne(Yii::$app->user->identity->getId());
+        if(Yii::$app->user->isGuest || $user->status == 'activated') {
             return $this->goHome();
         }
         $model = new ActivateForm();

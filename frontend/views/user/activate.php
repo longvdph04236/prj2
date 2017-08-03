@@ -14,8 +14,8 @@ $this->registerJsFile('@web/js/resendcode.js',['depends'=>[\frontend\assets\AppA
 
 <div class="row">
     <div class="col-md-6">
-        <p>Mã kích hoạt đã được gửi đến điện thoại của bạn. Mã sẽ hết hạn sau 5 phút. Sau 5 phút, vui lòng <a id="resend-link"
-                    href="<?= \yii\helpers\Url::toRoute('user/resend') ?>">lấy mã mới</a>.</p>
+        <p>Mã kích hoạt đã được gửi đến điện thoại của bạn. <br>Mã sẽ hết hạn sau 5 phút.<br>Sau 5 phút, vui lòng <b><a id="resend-link"
+                    href="<?= \yii\helpers\Url::toRoute('user/resend') ?>">lấy mã mới</a></b>.</p>
 
         <?php $form = ActiveForm::begin(['id' => 'login-form', 'layout' => 'horizontal']); ?>
 
