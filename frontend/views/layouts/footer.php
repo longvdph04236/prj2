@@ -10,7 +10,7 @@ use yii\authclient\widgets\AuthChoice;
                     <h4>Về chúng tôi</h4>
                 </div>
                 <div class="footer-col-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut distinctio earum eligendi fuga hic illum libero, magnam nobis porro provident quaerat quibusdam quos sed similique voluptatem? Ducimus ex nisi rerum?</p>
+                    <p>Là một trong những đơn vị đi đầu về dịch vụ thể thao online với nhiều năm kinh nghiệm, đội ngũ nhân viên nhiều năm kinh nghiệm, tự tin sử lý tất cả các trường hợp và áp dụng, cập nhận công nghệ một cách nhanh nhất.</p>
                 </div>
             </div>
             <div class="col-md-3">

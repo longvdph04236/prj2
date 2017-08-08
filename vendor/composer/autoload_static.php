@@ -35,8 +35,16 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
+        'k' => 
+        array (
+            'kolyunya\\yii2\\' => 14,
+            'kartik\\plugins\\fileinput\\' => 25,
+            'kartik\\file\\' => 12,
+            'kartik\\base\\' => 12,
+        ),
         'd' => 
         array (
+            'dosamigos\\tinymce\\' => 18,
             'dmstr\\' => 6,
         ),
         'c' => 
@@ -132,6 +140,26 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+        ),
+        'kolyunya\\yii2\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kolyunya/yii2-map-input-widget/sources',
+        ),
+        'kartik\\plugins\\fileinput\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
+        ),
+        'kartik\\file\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-fileinput',
+        ),
+        'kartik\\base\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
+        ),
+        'dosamigos\\tinymce\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-tinymce-widget/src',
         ),
         'dmstr\\' => 
         array (

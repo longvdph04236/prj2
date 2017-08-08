@@ -435,3 +435,28 @@ main {
 .has-sub:hover > .sub-menu {
     display: block;
 }
+
+.stadium-list li .thumb-container img {
+    width: 100%;
+}
+
+.stadium-list li {
+    position: relative;
+    padding: 15px 0;
+    border-bottom: 1px dashed #e3e3e3;
+}
+
+.stadium-list li:last-child {
+    border-bottom:none;
+}
+
+.stadium-list li .stadium-info p i{
+    display: inline-block;
+    min-width: 15px;
+}
+
+.stadium-list li .action-group {
+    position: absolute;
+    bottom: 15px;
+    right:0;
+}

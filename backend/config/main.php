@@ -12,7 +12,6 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
-    'homeUrl' => '/admin',
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',

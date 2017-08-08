@@ -46,7 +46,7 @@ class Stadiums extends \yii\db\ActiveRecord
             [['rate', 'count_rate', 'manager_id', 'district_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 15],
-            [['google_map'], 'string', 'max' => 30],
+            [['google_map'], 'string', 'max' => 100],
             [['manager_id'], 'exist', 'skipOnError' => true, 'targetClass' => Users::className(), 'targetAttribute' => ['manager_id' => 'id']],
             [['district_id'], 'exist', 'skipOnError' => true, 'targetClass' => District::className(), 'targetAttribute' => ['district_id' => 'id']],
         ];

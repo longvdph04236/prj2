@@ -28,4 +28,21 @@ $(document).ready(function () {
         previewimg(this);
         //console.log($(this).val());
     });
+
+    $('#newstadiumform-city').blur(function () {
+        //console.log($(this).val());
+        $.ajax({
+            url: $('#city').data('href'),
+            data: {n: $(this).val()},
+            method: 'post',
+            dataType: 'json',
+            success: function(response){
+                $('#district').empty();
+                response.forEach(function(item,index){
+                    e = '<option value="'+item+'">';
+                    $('#district').append(e);
+                })
+            }
+        })
+    })
 })

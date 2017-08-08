@@ -120,8 +120,8 @@ class UserController extends \yii\web\Controller
                     $code = mt_rand(0,9999);
                     $code = str_pad((string)$code,4, "0", STR_PAD_LEFT);
                     $mess = "Code kich hoat: ".$code;
-                    //$sent = $this->smsTo($phone,$mess);
-                    $sent = 'OK';
+                    $sent = $this->smsTo($phone,$mess);
+                    //$sent = 'OK';
                     if($sent == 'OK'){
                         $cookies =  Yii::$app->response->cookies;
                         date_default_timezone_set('Asia/Bangkok');
@@ -211,8 +211,8 @@ class UserController extends \yii\web\Controller
     }
 
     private function smsTo($phone, $mess){
-        $username = "84963468110";
-        $password = "7124";
+        $username = "841635251661";
+        $password = "1852";
         $mobile = $phone;
         $sender = "YeuBongDa";
         $message = $mess;
