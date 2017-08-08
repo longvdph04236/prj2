@@ -19,13 +19,23 @@ class ResetPasswordForm extends Model
     {
         return [
             ['phone', 'required', 'message' => 'Số điện thoại bắt buộc'],
-            ['phone', 'match', 'pattern' => '/^((0|\+84)1[2689]|(0|\+84)9)[0-9]{8}$/','message'=>'Dữ liệu không hợp lệ'],
-            ['phone', 'exist',
-                'targetClass' => '\common\models\User',
-                'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => 'Không có người nào có số điện thoại này'
-            ],
+            ['phone', 'match', 'pattern' => '/^((0|\+84|84)1[2689]|(0|\+84|84)9)[0-9]{8}$/','message'=>'Dữ liệu không hợp lệ'],
+            ['phone','checkPhone']
+
         ];
     }
+    public function checkPhone() {
+        if (substr($this->phone,0,1) == '0') {
+            $this->phone = substr_replace($this->phone,'84',0,1);
+
+        }else if(substr($this->phone,0,1) == '+') {
+            $this->phone = ltrim($this->phone,'+');
+        }
+
+        if (User::find()->where(['phone'=>$this->phone])->count()== 0 )  {
+            $this->addError('phone','Số điện thoại không tồn tại');
+        }
+    }
+
 
 }

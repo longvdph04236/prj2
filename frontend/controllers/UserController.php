@@ -12,6 +12,8 @@ use yii\helpers\Url;
 use yii\web\Cookie;
 use yii\web\UploadedFile;
 
+use frontend\models\ResetPasswordForm;
+
 class UserController extends \yii\web\Controller
 {
     public function actionFb(){
@@ -211,8 +213,8 @@ class UserController extends \yii\web\Controller
     }
 
     private function smsTo($phone, $mess){
-        $username = "841635251661";
-        $password = "1852";
+        $username = "841658892451";
+        $password = "7185";
         $mobile = $phone;
         $sender = "YeuBongDa";
         $message = $mess;
@@ -227,6 +229,31 @@ class UserController extends \yii\web\Controller
         curl_close($ch);
         $res = explode(' ',$responce);
         return $res[0];
+    }
+
+    public function actionResetPassword(){
+        $model = new ResetPasswordForm();
+        $this->view->params['big-title'] = 'khôi phục mật khẩu';
+        if(Yii::$app->request->isPost) {
+            if($model->load(Yii::$app->request->post())) {
+                if($model->validate()) {
+                    $newPassword = Yii::$app->security->generateRandomString(6);
+                    $mess = 'Mat khau moi: '.$newPassword.'. Ban vui long dang nhap lại de doi lai mat khau.';
+                    if($this->smsTo($model->phone,$mess) == 'OK'){
+                        $user = User::find()->where(['phone'=>$model->phone])->one();
+                        $user->password = Yii::$app->security->generatePasswordHash($newPassword);
+                        if ($user->save()) {
+                            $this->goHome();
+                        }else{
+                            var_dump($user->errors);die;
+                        }
+                    } else {
+                        die('Không gửi được sms, hết tiền');
+                    }
+                }
+            }
+        }
+        return $this->render('sendphone', ['model' => $model]);
     }
 }
 
