@@ -21,7 +21,7 @@
             )->label('Số điện thoại:') ?>
 
             <div class="form-group">
-                <?= Html::submitButton('Save', ['class' => 'btn btn-primary']) ?>
+                <?= Html::submitButton('Khôi Phục', ['class' => 'btn btn-success']) ?>
             </div>
 
             <?php ActiveForm::end(); ?>

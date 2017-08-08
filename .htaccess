@@ -1,14 +1,31 @@
-<IfModule mod_rewrite.c>
-    Options +FollowSymlinks
-    RewriteEngine On
-</IfModule>
+Options +FollowSymlinks
+RewriteEngine On
 
-<IfModule mod_rewrite.c>
-    RewriteCond %{REQUEST_URI} ^/.*
-    RewriteRule ^(.*)$ frontend/web/$1 [L]
+# deal with admin first
+RewriteCond %{REQUEST_URI} ^/prj2/(admin)
+RewriteRule ^admin/assets/(.*)$ backend/web/assets/$1 [L]
+RewriteRule ^admin/css/(.*)$ backend/web/css/$1 [L]
+RewriteRule ^admin/js/(.*)$ backend/web/js/$1 [L]
+RewriteRule ^admin/fonts/(.*)$ backend/web/fonts/$1 [L]
+RewriteRule ^admin/img/(.*)$ backend/web/img/$1 [L]
 
-    RewriteCond %{REQUEST_URI} !^/frontend/web/
-    RewriteCond %{REQUEST_FILENAME} !-f [OR]
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^.*$ frontend/web/index.php
-</IfModule>
+RewriteCond %{REQUEST_URI} !^/prj2/backend/web/(assets|css|img|js|fonts)/
+RewriteCond %{REQUEST_URI} ^/prj2/(admin)
+RewriteRule ^.*$ backend/web/index.php [L]
+
+
+RewriteCond %{REQUEST_URI} ^/prj2/(assets|css|img|js|fonts)
+RewriteRule ^assets/(.*)$ frontend/web/assets/$1 [L]
+RewriteRule ^css/(.*)$ frontend/web/css/$1 [L]
+RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
+RewriteRule ^img/(.*)$ frontend/web/img/$1 [L]
+RewriteRule ^fonts/(.*)$ frontend/web/fonts/$1 [L]
+
+RewriteCond %{REQUEST_URI} ^/prj2/common/uploads/images/
+RewriteRule ^common/uploads/images/(.*)$ common/uploads/images/$1 [L]
+
+RewriteCond %{REQUEST_URI} !^/prj2/(frontend|backend)/web/(assets|css|img|js|fonts)/
+RewriteCond %{REQUEST_URI} !index.php
+RewriteCond %{REQUEST_FILENAME} !-f [OR]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ frontend/web/index.php
