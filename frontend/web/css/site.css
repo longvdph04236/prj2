@@ -49,7 +49,7 @@ header .center-logo {
 
 header ul li {
     float: left;
-    line-height: 150px;
+    line-height: 50px;
 }
 
 header .pull-left {
@@ -57,7 +57,9 @@ header .pull-left {
 }
 
 header .pull-right ul li a i {
-    margin-right: 5px;
+    margin-right: 10px;
+    display: inline-block;
+    min-width: 10px;
 }
 
 header ul li a {
@@ -71,6 +73,10 @@ header .pull-right ul li a {
 
 #main-nav li a {
     font-weight:bold;
+}
+
+#main-nav ul, #right-nav {
+    padding: 50px 0;
 }
 
 header ul li a:hover {
@@ -310,4 +316,147 @@ main {
     width: 35px;
     height: 35px;
     margin-right: 5px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-user-photo img {
+    position: absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+}
+
+.footer-logo img {
+    width: 100%;
+    margin-top: 60px;
+}
+
+.action-group {
+    text-align: center;
+}
+
+.profile-pic-container {
+    position: relative;
+    border:1px solid darkgray;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    overflow: hidden;
+    width: 150px;
+    height:150px;
+}
+
+.profile-pic-container img {
+    width: 100%;
+    height:auto;
+    display: block;
+    position: absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.profile-pic-container button {
+    border:none;
+    background: none;
+    color:white;
+    position: absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.profile-pic-container .overlay {
+    display: none;
+}
+
+.profile-pic-container:hover .overlay,
+.profile-pic-container:hover button {
+    display: block;
+}
+
+.profile-pic-container input[type=file] {
+    visibility: hidden;
+}
+
+.has-sub {
+    position: relative;
+}
+
+.sub-menu {
+    position: absolute;
+    left:50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    top:100%;
+    background: white;
+    min-width: 200px;
+    display: none;
+    margin: 0;
+    border:1px solid #c7c7c7;
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    z-index: 9999;
+}
+
+#right-nav li.has-sub .sub-menu li {
+    line-height:normal !important;
+    float: none !important;
+}
+
+#right-nav .sub-menu li a {
+    color:black;
+    padding: 10px;
+    display: block;
+}
+
+.has-sub:hover > .sub-menu {
+    display: block;
+}
+
+.stadium-list li .thumb-container img {
+    width: 100%;
+}
+
+.stadium-list li {
+    position: relative;
+    padding: 15px 0;
+    border-bottom: 1px dashed #e3e3e3;
+}
+
+.stadium-list li:last-child {
+    border-bottom:none;
+}
+
+.stadium-list li .stadium-info p i{
+    display: inline-block;
+    min-width: 15px;
+}
+
+.stadium-list li .action-group {
+    position: absolute;
+    bottom: 15px;
+    right:0;
 }

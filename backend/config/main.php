@@ -15,6 +15,9 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
+            'class' => 'common\components\Request',
+            'web'=> '/backend/web',
+            'adminUrl' => '/admin'
         ],
         'view' => [
             'theme' => [

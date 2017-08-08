@@ -78,17 +78,25 @@ use yii\helpers\Url;
                                     ký</a></li>
                             <?php
                         } else {
-                            $user = \common\models\User::findIdentity(Yii::$app->user->identity);
+                            $user = \common\models\User::findIdentity(Yii::$app->user->identity->getId());
                             if(substr($user->avatar,0,8) == 'https://'){
                                 $link = $user->avatar;
                             } else {
                                 $link = Yii::$app->params['appFolder'].'/uploads/images/'.$user->avatar;
                             }
                             ?>
-                            <li><a href=""><img class="header-user-photo" src="<?= $link ?>" alt=""> <?= $user->fullname?></a></li>
-                            <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i
-                                        class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                            <li class="has-sub"><a href="<?= Url::toRoute('user/') ?>"><span class="header-user-photo"><img src="<?= $link ?>" alt=""></span> <?= $user->fullname?></a>
+                                <ul class="sub-menu ">
+                                    <li><a href="<?= Url::toRoute('user/index')?>"><i class="fa fa-pencil"></i>Chỉnh sửa thông tin</a></li>
+                                    <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
+                                </ul>
+                            </li>
                             <?php
+                            if($user->type == 'manager'){
+                                ?>
+                                <li><a class="btn btn-default" href="<?= Url::toRoute('quan-ly-san/') ?>">Quản lý sân bóng</a></li>
+                                <?php
+                            }
                         }
                         ?>
                     </ul>

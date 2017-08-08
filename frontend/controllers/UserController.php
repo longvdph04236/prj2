@@ -6,13 +6,13 @@ use common\models\LoginForm;
 use common\models\User;
 use frontend\models\ActivateForm;
 use frontend\models\SignupForm;
-use frontend\models\ResetPasswordForm;
+use frontend\models\UserProfileForm;
 use Yii;
 use yii\helpers\Url;
 use yii\web\Cookie;
 use yii\web\UploadedFile;
-use frontend\models\ResetPasswordForm;
 
+use frontend\models\ResetPasswordForm;
 
 class UserController extends \yii\web\Controller
 {
@@ -38,8 +38,44 @@ class UserController extends \yii\web\Controller
 
     public function actionIndex()
     {
+        if(Yii::$app->user->isGuest){
+            return $this->goHome();
+        }
         $this->view->params['big-title'] = 'Hồ sơ người dùng';
-        return $this->render('index');
+        $userModel = User::findOne(Yii::$app->user->identity->getId());
+
+        $upForm = new UserProfileForm();
+        if(Yii::$app->request->isPost){
+            $post = Yii::$app->request->post();
+            if(isset($post['profile-update-button'])){
+                if($userModel->load(Yii::$app->request->post())){
+                    $userModel->newPhoto = UploadedFile::getInstance($userModel,'newPhoto');
+                    if($userModel->validate()){
+                        if (isset($userModel->newPhoto->extension)) {
+                            $timeMarker = str_replace(" ", "_", microtime());
+                            $filename = $userModel->newPhoto->baseName . $timeMarker .'.'. $userModel->newPhoto->extension;
+                            $userModel->newPhoto->saveAs(Yii::$app->params['appPath'].'/uploads/images/' . $filename);
+                            $userModel->avatar = $filename;
+                            $userModel->newPhoto = null;
+                        }
+                        $userModel->save();
+                        Yii::$app->session->setFlash('s','Thông tin đã được cập nhật thành công');
+                        return $this->redirect(['user/index']);
+                    }
+                }
+            } else if(isset($post['password-update-button'])){
+                if($upForm->load(Yii::$app->request->post())){
+                    if($upForm->update(Yii::$app->user->identity->getId())){
+                        Yii::$app->session->setFlash('s','Mật khẩu đã được cập nhật thành công');
+                        return $this->redirect(['user/index']);
+                    } else {
+                        Yii::$app->session->setFlash('f','Sai mật khẩu');
+                        return $this->redirect(['user/index']);
+                    }
+                }
+            }
+        }
+        return $this->render('index',['model'=>$userModel,'upForm'=>$upForm]);
     }
 
     public function actionDangNhap()
@@ -87,7 +123,7 @@ class UserController extends \yii\web\Controller
                     $code = str_pad((string)$code,4, "0", STR_PAD_LEFT);
                     $mess = "Code kich hoat: ".$code;
                     $sent = $this->smsTo($phone,$mess);
-                    //var_dump($sent);die;
+                    //$sent = 'OK';
                     if($sent == 'OK'){
                         $cookies =  Yii::$app->response->cookies;
                         date_default_timezone_set('Asia/Bangkok');
@@ -110,7 +146,8 @@ class UserController extends \yii\web\Controller
 
     public function actionKichHoat()
     {
-        if(Yii::$app->user->isGuest) {
+        $user = User::findOne(Yii::$app->user->identity->getId());
+        if(Yii::$app->user->isGuest || $user->status == 'activated') {
             return $this->goHome();
         }
         $model = new ActivateForm();

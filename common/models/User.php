@@ -12,6 +12,7 @@ namespace common\models;
 use Yii;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use common\models\Stadiums;
 
 /**
  * This is the model class for table "users".
@@ -37,23 +38,43 @@ class User extends ActiveRecord implements IdentityInterface
 {
     const STATUS_DELETED = 'inactive';
     const STATUS_ACTIVE = 'activated';
+    public $newPhoto;
 
     public static function tableName()
     {
         return 'users';
     }
 
+
     public function rules()
     {
         return [
+            [['newPhoto'], 'file', 'extensions' => 'jpg, png'],
             [['fullname', 'username', 'password', 'phone', 'type'], 'required'],
             [['type', 'status'], 'string'],
             [['fullname'], 'string', 'max' => 60],
             [['username'], 'string', 'max' => 30],
             [['password', 'email', 'avatar', 'authKey', 'accessToken'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 15],
+
+            ['username', 'trim'],
+            ['username', 'required', 'message' => 'Tên đăng nhập bắt buộc'],
+            ['username', 'unique', 'targetClass' => '\common\models\Users', 'filter' => ['<>','id', $this->id],'message' => 'Tên đăng nhập đã tồn tại'],
+            ['username', 'string', 'min' => 2, 'max' => 255],
+
+            ['email', 'trim'],
+            ['email', 'email','message' => 'Email không hợp lệ'],
+            ['email', 'string', 'max' => 255],
+            ['email', 'unique', 'targetClass' => '\common\models\Users', 'filter' => ['<>','id', $this->id], 'message' => 'Email đã tồn tại'],
+
+            ['fullname', 'string', 'min' => 10, 'max' => 60, 'message' => 'Họ và tên phải có ít nhất 10 ký tự, nhiều nhất 60 ký tự'],
+            ['fullname', 'required', 'message' => 'Họ tên đầy đủ bắt buộc'],
+
+            ['phone', 'required', 'message' => 'Số điện thoại bắt buộc'],
+            ['phone', 'match', 'pattern' => '/^((0|\+84|84)1[2689]|(0|\+84|84)9)[0-9]{8}$/', 'message' => 'Số điện thoại không hợp lệ'],
         ];
     }
+
 
     public function attributeLabels()
     {
@@ -145,6 +166,8 @@ class User extends ActiveRecord implements IdentityInterface
             'status' => self::STATUS_ACTIVE,
         ]);
     }
+
+
 
     /**
      * Finds out if password reset token is valid

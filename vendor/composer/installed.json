@@ -3512,5 +3512,410 @@
             "oauth",
             "yii2"
         ]
+    },
+    {
+        "name": "bower-asset/toastr",
+        "version": "2.1.3",
+        "version_normalized": "2.1.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/johnpapa/toastr-bower.git",
+            "reference": "d6fef68471aa1836bc44ba1a41a90a96548b784f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/johnpapa/toastr-bower/zipball/d6fef68471aa1836bc44ba1a41a90a96548b784f",
+            "reference": "d6fef68471aa1836bc44ba1a41a90a96548b784f",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/jquery": ">=1.6.3,<3"
+        },
+        "type": "bower-asset-library",
+        "extra": {
+            "bower-asset-main": [
+                "toastr.js",
+                "toastr.css"
+            ]
+        },
+        "installation-source": "dist",
+        "license": [
+            "MIT"
+        ]
+    },
+    {
+        "name": "conquer/toastr",
+        "version": "1.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/borodulin/yii2-toastr.git",
+            "reference": "e93e4219997c33b67e1894d93f12682c5649f44c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/borodulin/yii2-toastr/zipball/e93e4219997c33b67e1894d93f12682c5649f44c",
+            "reference": "e93e4219997c33b67e1894d93f12682c5649f44c",
+            "shasum": ""
+        },
+        "require": {
+            "bower-asset/toastr": "~2.1.1",
+            "php": ">=5.4.0",
+            "yiisoft/yii2": "*"
+        },
+        "time": "2015-04-10 16:20:59",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "conquer\\toastr\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Andrey Borodulin",
+                "email": "borodulin@gmail.com",
+                "homepage": "https://github.com/borodulin/yii2-toastr"
+            }
+        ],
+        "description": "Yii2 toastr widget",
+        "homepage": "https://github.com/borodulin/yii2-toastr",
+        "keywords": [
+            "extension",
+            "toastr",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "tinymce/tinymce",
+        "version": "4.6.5",
+        "version_normalized": "4.6.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tinymce/tinymce-dist.git",
+            "reference": "a874c512a61a353e80809f5e4ffb5e12869aa177"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tinymce/tinymce-dist/zipball/a874c512a61a353e80809f5e4ffb5e12869aa177",
+            "reference": "a874c512a61a353e80809f5e4ffb5e12869aa177",
+            "shasum": ""
+        },
+        "time": "2017-08-02 14:08:17",
+        "type": "component",
+        "extra": {
+            "component": {
+                "scripts": [
+                    "tinymce.js",
+                    "plugins/*/plugin.js",
+                    "themes/*/theme.js"
+                ],
+                "files": [
+                    "tinymce.min.js",
+                    "plugins/*/plugin.min.js",
+                    "themes/*/theme.min.js",
+                    "skins/**"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-2.1"
+        ],
+        "description": "Web based JavaScript HTML WYSIWYG editor control.",
+        "homepage": "http://www.tinymce.com",
+        "keywords": [
+            "editor",
+            "html",
+            "javascript",
+            "richtext",
+            "tinymce",
+            "wysiwyg"
+        ]
+    },
+    {
+        "name": "2amigos/yii2-tinymce-widget",
+        "version": "1.1.2",
+        "version_normalized": "1.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/2amigos/yii2-tinymce-widget.git",
+            "reference": "4f519e37774ef231e4b4d6046854d5638548c8e0"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/2amigos/yii2-tinymce-widget/zipball/4f519e37774ef231e4b4d6046854d5638548c8e0",
+            "reference": "4f519e37774ef231e4b4d6046854d5638548c8e0",
+            "shasum": ""
+        },
+        "require": {
+            "tinymce/tinymce": ">=4",
+            "yiisoft/yii2": "~2.0.0"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.*"
+        },
+        "time": "2017-06-09 14:12:14",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0-dev"
+            },
+            "asset-installer-paths": {
+                "bower-asset-library": "vendor/bower"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "dosamigos\\tinymce\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "2amigOS! Consulting Group",
+                "email": "hola@2amigos.us",
+                "homepage": "http://2amigos.us",
+                "role": "Developer"
+            }
+        ],
+        "description": "TinyMCE widget for Yii2.",
+        "homepage": "http://yiiwheels.com/extension/tinymce-widget",
+        "keywords": [
+            "2amigos",
+            "extension",
+            "tinymce",
+            "widget",
+            "yii",
+            "yii 2",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kolyunya/yii2-map-input-widget",
+        "version": "v1.1.0",
+        "version_normalized": "1.1.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Kolyunya/yii2-map-input-widget.git",
+            "reference": "8ebde833307e630446aa6a482d244cdea5e4cf98"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Kolyunya/yii2-map-input-widget/zipball/8ebde833307e630446aa6a482d244cdea5e4cf98",
+            "reference": "8ebde833307e630446aa6a482d244cdea5e4cf98",
+            "shasum": ""
+        },
+        "time": "2016-01-12 21:45:32",
+        "type": "yii2-extension",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kolyunya\\yii2\\": "sources"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "GNU GPL v3.0"
+        ],
+        "authors": [
+            {
+                "name": "Oleynikov Nikolay",
+                "email": "OleynikovNY@mail.ru",
+                "homepage": "http://github.com/Kolyunya/"
+            }
+        ],
+        "description": "Yii2 map input widget. Allows you to select geographcal coordinates via a human-friendly inteface.",
+        "homepage": "https://github.com/Kolyunya/yii2-map-input-widget",
+        "keywords": [
+            "coordinates",
+            "extension",
+            "geo-coordinates",
+            "geocoding",
+            "input",
+            "map",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/bootstrap-fileinput",
+        "version": "v4.4.2",
+        "version_normalized": "4.4.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/bootstrap-fileinput.git",
+            "reference": "28c89de2708f32814879241b6f112ee27b8f4ec8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/bootstrap-fileinput/zipball/28c89de2708f32814879241b6f112ee27b8f4ec8",
+            "reference": "28c89de2708f32814879241b6f112ee27b8f4ec8",
+            "shasum": ""
+        },
+        "time": "2017-06-24 05:15:30",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "4.4.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\plugins\\fileinput\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "An enhanced HTML 5 file input for Bootstrap 3.x with features for file preview for many file types, multiple selection, ajax uploads, and more.",
+        "homepage": "https://github.com/kartik-v/bootstrap-fileinput",
+        "keywords": [
+            "ajax",
+            "bootstrap",
+            "delete",
+            "file",
+            "image",
+            "input",
+            "jquery",
+            "multiple",
+            "preview",
+            "progress",
+            "upload"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-krajee-base",
+        "version": "v1.8.8",
+        "version_normalized": "1.8.8.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-krajee-base.git",
+            "reference": "2479241c03c87995cfc528ae7b297f5ae9e733cb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/2479241c03c87995cfc528ae7b297f5ae9e733cb",
+            "reference": "2479241c03c87995cfc528ae7b297f5ae9e733cb",
+            "shasum": ""
+        },
+        "require": {
+            "yiisoft/yii2-bootstrap": "@dev"
+        },
+        "time": "2017-02-22 05:58:53",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.8.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "kartik\\base\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "Base library and foundation components for all Yii2 Krajee extensions.",
+        "homepage": "https://github.com/kartik-v/yii2-krajee-base",
+        "keywords": [
+            "base",
+            "extension",
+            "foundation",
+            "krajee",
+            "widget",
+            "yii2"
+        ]
+    },
+    {
+        "name": "kartik-v/yii2-widget-fileinput",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/kartik-v/yii2-widget-fileinput.git",
+            "reference": "a4f363c9e5ba8a019cec6865ced20c3f8a09d3d8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/kartik-v/yii2-widget-fileinput/zipball/a4f363c9e5ba8a019cec6865ced20c3f8a09d3d8",
+            "reference": "a4f363c9e5ba8a019cec6865ced20c3f8a09d3d8",
+            "shasum": ""
+        },
+        "require": {
+            "kartik-v/bootstrap-fileinput": "~4.4",
+            "kartik-v/yii2-krajee-base": "~1.7"
+        },
+        "time": "2017-06-24 19:36:32",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "kartik\\file\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Kartik Visweswaran",
+                "email": "kartikv2@gmail.com",
+                "homepage": "http://www.krajee.com/"
+            }
+        ],
+        "description": "An enhanced FileInput widget for Bootstrap 3.x with file preview, multiple selection, and more features (sub repo split from yii2-widgets)",
+        "homepage": "https://github.com/kartik-v/yii2-widget-fileinput",
+        "keywords": [
+            "extension",
+            "file",
+            "form",
+            "input",
+            "jquery",
+            "plugin",
+            "upload",
+            "widget",
+            "yii2"
+        ]
     }
 ]

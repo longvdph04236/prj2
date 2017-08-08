@@ -73,14 +73,14 @@ HomeAsset::register($this);
     }
 </script>
 <div class="full-screen">
-    <div id="background_video" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=0N6MG8xb2B8',containment:'#background_video',startAt:39.7,mute:true,autoPlay:true,loop:true,opacity:1}"></div>
+    <div id="background_video" class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=fYlaY14BhsM',containment:'#background_video',quality:'hd720',startAt:39.7,mute:true,autoPlay:true,loop:true,opacity:1}"></div>
     <div class="bg-full-screen"></div>
     <header class="transparent-bg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 clearfix">
                     <div class="center-logo">
-                        <a href="#"><img src="<?= Yii::getAlias('@web')?>/img/logo.png" alt=""></a>
+                        <a href="<?= Url::toRoute('home/') ?>"><img src="<?= Yii::getAlias('@web')?>/img/logo.png" alt=""></a>
                     </div>
                     <div class="pull-left">
                         <nav id="main-nav">
@@ -99,21 +99,28 @@ HomeAsset::register($this);
                                 ?>
                                 <li><a href="" id="login-a-btn" data-toggle="modal" data-target="#loginModal"><i
                                                 class="fa fa-sign-in"></i> Đăng nhập</a></li>
-                                <li><a class="btn btn-default" href="<?= Url::toRoute('user/dang-ky') ?>"><i class="fa fa-user-plus"></i> Đăng
-                                        ký</a></li>
+                                <li><a class="btn btn-default" href="<?= Url::toRoute('user/dang-ky') ?>"><i class="fa fa-user-plus"></i> Đăng ký</a></li>
                                 <?php
                             } else {
-                                $user = \common\models\User::findIdentity(Yii::$app->user->identity);
+                                $user = \common\models\User::findIdentity(Yii::$app->user->identity->getId());
                                 if(substr($user->avatar,0,8) == 'https://'){
                                     $link = $user->avatar;
                                 } else {
                                     $link = Yii::$app->params['appFolder'].'/uploads/images/'.$user->avatar;
                                 }
                                 ?>
-                                <li><a href=""><img class="header-user-photo" src="<?= $link ?>" alt=""> <?= $user->fullname?></a></li>
-                                <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i
-                                                class="fa fa-sign-out"></i> Đăng xuất</a></li>
+                                <li class="has-sub"><a href="<?= Url::toRoute('user/') ?>"><span class="header-user-photo"><img src="<?= $link ?>" alt=""></span> <?= $user->fullname?></a>
+                                    <ul class="sub-menu ">
+                                        <li><a href="<?= Url::toRoute('user/index')?>"><i class="fa fa-pencil"></i>Chỉnh sửa thông tin</a></li>
+                                        <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
+                                    </ul>
+                                </li>
                                 <?php
+                                if($user->type == 'manager'){
+                                    ?>
+                                <li><a class="btn btn-default" href="<?= Url::toRoute('quan-ly-san/') ?>">Quản lý sân bóng</a></li>
+                            <?php
+                                }
                             }
                             ?>
                         </ul>
