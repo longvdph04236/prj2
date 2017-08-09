@@ -53,6 +53,7 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'san-bong/<id:.+>' => 'san-bong/index',
             ],
         ],
 

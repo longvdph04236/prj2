@@ -460,3 +460,38 @@ main {
     bottom: 15px;
     right:0;
 }
+
+.with-location p {
+    padding: 10px 0 5px;
+}
+
+.with-location p i{
+    display: inline-block;
+    width: 20px;
+}
+
+.rating-container {
+    display: inline-block;
+}
+
+.rating-container.rating-xs {
+    font-size:16px !important;
+}
+
+.contact-info p {
+    line-height:23px;
+}
+
+.contact-info p b {
+    display: inline-block;
+    min-width: 150px;
+}
+
+.contact-info p b i {
+    display: inline-block;
+    min-width: 20px;
+}
+
+.photo-slider img {
+    width: 100%;
+}

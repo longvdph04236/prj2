@@ -22,13 +22,13 @@ $stadium_count = count($user->stadiums);
                         <img src="<?= Yii::getAlias('@web') ?>/img/002.png" alt="">
                     </div>
                     <div class="stadium-info col-md-9">
-                        <h3><a href="<?= \yii\helpers\Url::toRoute(['quan-ly-san/chi-tiet','i'=>$stadium['id']]) ?>"><?= $stadium['name']?></a></h3>
+                        <h3><a href="<?= \yii\helpers\Url::toRoute(['san-bong/'.$stadium['id']]) ?>"><?= $stadium['name']?></a></h3>
                         <p><b><i class="fa fa-map-marker"></i> Địa chỉ:</b> <?= $stadium['address'] ?></p>
                         <p><b><i class="fa fa-map-signs"></i> Quận/huyện:</b> <?= $d->getAttribute('name') ?></p>
                         <p><b><i class="fa fa-globe"></i> Tỉnh/thành phố:</b> <?= $c->getAttribute('name') ?></p>
                     </div>
                     <div class="action-group">
-                        <a href="<?= \yii\helpers\Url::toRoute(['quan-ly-san/chi-tiet','i'=>$stadium['id']]) ?>"><button class="btn btn-primary">Xem chi tiết</button></a>
+                        <a href="<?= \yii\helpers\Url::toRoute(['san-bong/'.$stadium['id']]) ?>"><button class="btn btn-primary">Xem chi tiết</button></a>
                         <a href="<?= \yii\helpers\Url::toRoute(['quan-ly-san/xoa','i'=>$stadium['id']]) ?>"><button class="btn btn-danger">Xóa</button></a>
                     </div>
                 </li>

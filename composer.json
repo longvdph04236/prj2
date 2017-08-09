@@ -24,7 +24,10 @@
         "conquer/toastr": "*",
         "2amigos/yii2-tinymce-widget": "~1.1",
         "kolyunya/yii2-map-input-widget": "^1.1",
-        "kartik-v/yii2-widget-fileinput": "@dev"
+        "kartik-v/yii2-widget-fileinput": "@dev",
+        "kartik-v/yii2-widget-rating": "*",
+        "2amigos/yii2-gallery-widget": "~1.0",
+        "edofre/yii2-slider-pro": "V1.1.6"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

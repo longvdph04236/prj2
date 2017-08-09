@@ -18,6 +18,7 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         'y' => 
         array (
             'yii\\swiftmailer\\' => 16,
+            'yii\\jui\\' => 8,
             'yii\\httpclient\\' => 15,
             'yii\\gii\\' => 8,
             'yii\\faker\\' => 10,
@@ -38,13 +39,19 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         'k' => 
         array (
             'kolyunya\\yii2\\' => 14,
+            'kartik\\rating\\' => 14,
             'kartik\\plugins\\fileinput\\' => 25,
             'kartik\\file\\' => 12,
             'kartik\\base\\' => 12,
         ),
+        'e' => 
+        array (
+            'edofre\\sliderpro\\' => 17,
+        ),
         'd' => 
         array (
             'dosamigos\\tinymce\\' => 18,
+            'dosamigos\\gallery\\' => 18,
             'dmstr\\' => 6,
         ),
         'c' => 
@@ -99,6 +106,10 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-swiftmailer',
         ),
+        'yii\\jui\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/yiisoft/yii2-jui',
+        ),
         'yii\\httpclient\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2-httpclient',
@@ -145,6 +156,10 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         array (
             0 => __DIR__ . '/..' . '/kolyunya/yii2-map-input-widget/sources',
         ),
+        'kartik\\rating\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kartik-v/yii2-widget-rating',
+        ),
         'kartik\\plugins\\fileinput\\' => 
         array (
             0 => __DIR__ . '/..' . '/kartik-v/bootstrap-fileinput',
@@ -157,9 +172,17 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
         ),
+        'edofre\\sliderpro\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/edofre/yii2-slider-pro/src',
+        ),
         'dosamigos\\tinymce\\' => 
         array (
             0 => __DIR__ . '/..' . '/2amigos/yii2-tinymce-widget/src',
+        ),
+        'dosamigos\\gallery\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-gallery-widget/src',
         ),
         'dmstr\\' => 
         array (
