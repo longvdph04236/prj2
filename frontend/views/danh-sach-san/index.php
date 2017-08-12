@@ -6,7 +6,7 @@
 ?>
 <div class="row">
     <div class="col-md-12">
-        <ul class="list-stadium">
+        <ul class="list-stadium flex">
             <?php
                 foreach($model as $item) {
                     $d = \common\models\District::findOne($item['district_id']);
@@ -17,7 +17,7 @@
                             <img src="<?= Yii::getAlias('@web') ?>/img/002.png" alt="">
                         </div>
                         <div class="stadium-info col-md-9">
-                            <h3><a href="<?= \yii\helpers\Url::toRoute(['quan-ly-san/chi-tiet','i'=>$item['id']]) ?>"><?= $item['name']?></a></h3>
+                            <h3><a href="<?= \yii\helpers\Url::toRoute(['san-bong/chi-tiet/'.$item['id']]) ?>"><?= $item['name']?></a></h3>
                             <p><b><i class="fa fa-map-marker"></i> Địa chỉ:</b> <?= $item['address'] ?></p>
                             <p><b><i class="fa fa-mobile"></i> Số điện thoại:</b> <?= $item['phone'] ?></p>
                             <p><b><i class="fa fa-map-signs"></i> Quận/huyện:</b> <?= $d->getAttribute('name') ?></p>

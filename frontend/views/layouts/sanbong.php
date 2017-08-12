@@ -28,9 +28,24 @@ AppAsset::register($this);
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-                <h2><?php echo isset($this->params['big-title'])? $this->params['big-title']:''?></h2>
-                <p><i class="fa fa-map-marker"></i><?php echo isset($this->params['location'])? $this->params['location']:''?></p>
+            <div class="col-md-12 has-right-btn">
+
+                    <h2><?php echo isset($this->params['big-title'])? $this->params['big-title']:''?></h2>
+                    <p><i class="fa fa-map-marker"></i><?php echo isset($this->params['location'])? $this->params['location']:''?></p>
+
+                    <?php
+                    $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
+                    if($logged_user->type == 'manager'){
+                        ?>
+                        <a class="right-btn" href="<?= Url::toRoute(['san-bong/sua','id'=>$this->params['id-san']])?>"><button class="btn btn-success"><i class="fa fa-pencil"></i> Sửa thông tin</button></a>
+                    <?php
+                    } else {
+                        ?>
+                        <button id="book-a-btn" data-toggle="modal" data-target="#bookModal" class="btn btn-success right-btn"><i class="fa fa-ticket"></i> Đặt sân</button>
+                        <?php
+                    }
+                    ?>
+
             </div>
         </div>
     </div>

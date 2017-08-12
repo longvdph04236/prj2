@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "92aa4e5181bfbf9683f89d05a91d337c",
-    "content-hash": "ee24de3de1726c978e4df8d5ce91132d",
+    "hash": "2ceb98dae083151a38c5a5ecf6edf098",
+    "content-hash": "2887dc9a663733d8de039f84a75b70ad",
     "packages": [
         {
             "name": "2amigos/yii2-gallery-widget",
@@ -67,6 +67,56 @@
                 "yii2"
             ],
             "time": "2016-09-10 19:18:19"
+        },
+        {
+            "name": "2amigos/yii2-google-maps-library",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/2amigos/yii2-google-maps-library.git",
+                "reference": "1d8f69c7983522c99f511268b6cca5952f1c5fe6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/2amigos/yii2-google-maps-library/zipball/1d8f69c7983522c99f511268b6cca5952f1c5fe6",
+                "reference": "1d8f69c7983522c99f511268b6cca5952f1c5fe6",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "6.*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii-extension",
+            "autoload": {
+                "psr-4": {
+                    "dosamigos\\google\\maps\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "ramirez.cobos@gmail.com",
+                    "homepage": "http://www.ramirezcobos.com"
+                },
+                {
+                    "name": "2amigOS! Consulting LLC",
+                    "email": "hola@2amigos.us",
+                    "homepage": "http://2amigos.us"
+                }
+            ],
+            "description": "Google Maps API library for Yii2.",
+            "keywords": [
+                "extension",
+                "google",
+                "library",
+                "maps",
+                "yii"
+            ],
+            "time": "2016-10-11 08:35:17"
         },
         {
             "name": "2amigos/yii2-tinymce-widget",
@@ -234,6 +284,96 @@
             ]
         },
         {
+            "name": "bower-asset/datatables",
+            "version": "1.10.15",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataTables/DataTables.git",
+                "reference": "7494262db18b1cbc69dcc1d64a5a8d0cd757d58c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataTables/DataTables/zipball/7494262db18b1cbc69dcc1d64a5a8d0cd757d58c",
+                "reference": "7494262db18b1cbc69dcc1d64a5a8d0cd757d58c",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.7.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "media/js/jquery.dataTables.js",
+                    "media/css/jquery.dataTables.css",
+                    "media/images/sort_asc.png",
+                    "media/images/sort_asc_disabled.png",
+                    "media/images/sort_both.png",
+                    "media/images/sort_desc.png",
+                    "media/images/sort_desc_disabled.png"
+                ],
+                "bower-asset-ignore": [
+                    "/.*",
+                    "examples",
+                    "media/unit_testing",
+                    "composer.json",
+                    "dataTables.jquery.json",
+                    "package.json"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "keywords": [
+                "datatables",
+                "javascript",
+                "jquery",
+                "library",
+                "table"
+            ]
+        },
+        {
+            "name": "bower-asset/datatables-bootstrap3",
+            "version": "0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Jowin/Datatables-Bootstrap3.git",
+                "reference": "06d78a732dfd1da928ff118dd26249ae94021495"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Jowin/Datatables-Bootstrap3/zipball/06d78a732dfd1da928ff118dd26249ae94021495",
+                "reference": "06d78a732dfd1da928ff118dd26249ae94021495",
+                "shasum": ""
+            },
+            "type": "bower-asset-library"
+        },
+        {
+            "name": "bower-asset/datatables-tabletools",
+            "version": "2.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DataTables/TableTools.git",
+                "reference": "5fc9d457b673fe3f2d84f32660ee74e29ce6f84e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DataTables/TableTools/zipball/5fc9d457b673fe3f2d84f32660ee74e29ce6f84e",
+                "reference": "5fc9d457b673fe3f2d84f32660ee74e29ce6f84e",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/datatables": ">=1.9.0",
+                "bower-asset/jquery": ">=1.7.0"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "js/dataTables.tableTools.js",
+                    "css/dataTables.tableTools.css"
+                ]
+            }
+        },
+        {
             "name": "bower-asset/jquery",
             "version": "2.2.4",
             "source": {
@@ -263,6 +403,37 @@
                 "jquery",
                 "library"
             ]
+        },
+        {
+            "name": "bower-asset/jquery-mousewheel",
+            "version": "3.1.13",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jquery/jquery-mousewheel.git",
+                "reference": "67289b6b2aa0066d7d78a5807f520387135ffb22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jquery/jquery-mousewheel/zipball/67289b6b2aa0066d7d78a5807f520387135ffb22",
+                "reference": "67289b6b2aa0066d7d78a5807f520387135ffb22",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.2.2"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "./jquery.mousewheel.js",
+                "bower-asset-ignore": [
+                    "*.json",
+                    "*.markdown",
+                    "*.txt",
+                    ".*",
+                    "!LICENSE.txt",
+                    "Gruntfile.js",
+                    "test"
+                ]
+            }
         },
         {
             "name": "bower-asset/jquery-ui",
@@ -346,6 +517,49 @@
                 "jquery",
                 "mask",
                 "plugins"
+            ]
+        },
+        {
+            "name": "bower-asset/malihu-custom-scrollbar-plugin",
+            "version": "3.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/malihu/malihu-custom-scrollbar-plugin.git",
+                "reference": "eac2b0af71a7ca06cc19e28d15ba60f6db2dfd29"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/malihu/malihu-custom-scrollbar-plugin/zipball/eac2b0af71a7ca06cc19e28d15ba60f6db2dfd29",
+                "reference": "eac2b0af71a7ca06cc19e28d15ba60f6db2dfd29",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": ">=1.6",
+                "bower-asset/jquery-mousewheel": ">=3.0.6"
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "./jquery.mCustomScrollbar.js",
+                    "./jquery.mCustomScrollbar.css",
+                    "./mCSB_buttons.png"
+                ],
+                "bower-asset-ignore": [
+                    "*.md",
+                    ".*",
+                    "*.txt",
+                    "*.json",
+                    "*.html",
+                    "/examples",
+                    "/source-files",
+                    "/js"
+                ]
+            },
+            "description": "Highly customizable custom scrollbar jQuery plugin, featuring vertical/horizontal scrollbars, scrolling momentum, mouse-wheel, keyboard and touch support, user defined callbacks etc.",
+            "keywords": [
+                "custom-scrollbar",
+                "jquery",
+                "scrollbar"
             ]
         },
         {
@@ -634,6 +848,60 @@
             "time": "2015-04-10 16:20:59"
         },
         {
+            "name": "dhiraj/yii2-malihu-custom-scrollbar-plugin",
+            "version": "1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dhiraj/yii2-malihu-custom-scrollbar-plugin.git",
+                "reference": "7c1ac4f826fef0ee346ef2f1bd614d67fe6cb609"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dhiraj/yii2-malihu-custom-scrollbar-plugin/zipball/7c1ac4f826fef0ee346ef2f1bd614d67fe6cb609",
+                "reference": "7c1ac4f826fef0ee346ef2f1bd614d67fe6cb609",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/jquery": "2.2.*@stable | 2.1.*@stable | 1.11.*@stable | 1.12.*@stable",
+                "bower-asset/malihu-custom-scrollbar-plugin": "^3.1",
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "2.0.*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "traversient\\yii\\customscrollbar\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dhiraj Gupta",
+                    "email": "dhiraj@traversient.com",
+                    "homepage": "http://traversient.com/"
+                }
+            ],
+            "description": "Asset Bundle for Yii2 with yii2-malihu-custom-scrollbar-plugin",
+            "keywords": [
+                "asset",
+                "bundle",
+                "custom scrollbar",
+                "jquery",
+                "yii",
+                "yii2-malihu-custom-scrollbar-plugin"
+            ],
+            "time": "2016-09-13 11:43:05"
+        },
+        {
             "name": "dmstr/yii2-adminlte-asset",
             "version": "2.4.2",
             "source": {
@@ -793,6 +1061,60 @@
             "time": "2017-06-03 02:28:16"
         },
         {
+            "name": "fedemotta/yii2-widget-datatables",
+            "version": "v1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fedemotta/yii2-widget-datatables.git",
+                "reference": "ee0c70a038302ca414fe01d51732ed217efdc772"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fedemotta/yii2-widget-datatables/zipball/ee0c70a038302ca414fe01d51732ed217efdc772",
+                "reference": "ee0c70a038302ca414fe01d51732ed217efdc772",
+                "shasum": ""
+            },
+            "require": {
+                "bower-asset/datatables": ">= 1.9.4",
+                "bower-asset/datatables-bootstrap3": "*",
+                "bower-asset/datatables-tabletools": "*",
+                "bower-asset/jquery": ">= 1.7.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "bower-asset-library": "vendor/bower"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "fedemotta\\datatables\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Federico Nicolás Motta",
+                    "email": "fedemotta@gmail.com"
+                }
+            ],
+            "description": "DataTables widget for Yii2",
+            "keywords": [
+                "datatables",
+                "extension",
+                "javascript",
+                "jquery",
+                "library",
+                "table",
+                "yii2"
+            ],
+            "time": "2015-06-08 16:07:23"
+        },
+        {
             "name": "fortawesome/font-awesome",
             "version": "v4.7.0",
             "source": {
@@ -839,6 +1161,187 @@
                 "icon"
             ],
             "time": "2016-10-24 15:52:54"
+        },
+        {
+            "name": "guzzlehttp/guzzle",
+            "version": "6.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/guzzle.git",
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "reference": "f4db5a78a5ea468d4831de7f0bf9d9415e348699",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/promises": "^1.0",
+                "guzzlehttp/psr7": "^1.4",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "ext-curl": "*",
+                "phpunit/phpunit": "^4.0 || ^5.0",
+                "psr/log": "^1.0"
+            },
+            "suggest": {
+                "psr/log": "Required for using the Log middleware"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "6.2-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
+                "psr-4": {
+                    "GuzzleHttp\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle is a PHP HTTP client library",
+            "homepage": "http://guzzlephp.org/",
+            "keywords": [
+                "client",
+                "curl",
+                "framework",
+                "http",
+                "http client",
+                "rest",
+                "web service"
+            ],
+            "time": "2017-06-22 18:50:49"
+        },
+        {
+            "name": "guzzlehttp/promises",
+            "version": "v1.3.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/promises.git",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "reference": "a59da6cf61d80060647ff4d3eb2c03a2bc694646",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Promise\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Guzzle promises library",
+            "keywords": [
+                "promise"
+            ],
+            "time": "2016-12-20 10:07:11"
+        },
+        {
+            "name": "guzzlehttp/psr7",
+            "version": "1.4.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guzzle/psr7.git",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "psr/http-message": "~1.0"
+            },
+            "provide": {
+                "psr/http-message-implementation": "1.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "GuzzleHttp\\Psr7\\": "src/"
+                },
+                "files": [
+                    "src/functions_include.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "homepage": "https://github.com/Tobion"
+                }
+            ],
+            "description": "PSR-7 message implementation that also provides common utility methods",
+            "keywords": [
+                "http",
+                "message",
+                "request",
+                "response",
+                "stream",
+                "uri",
+                "url"
+            ],
+            "time": "2017-03-20 17:10:46"
         },
         {
             "name": "kartik-v/bootstrap-fileinput",
@@ -1143,6 +1646,56 @@
                 "yii2"
             ],
             "time": "2016-01-12 21:45:32"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "rmrevin/yii2-fontawesome",
@@ -2015,71 +2568,6 @@
             "time": "2016-04-29 12:21:54"
         },
         {
-            "name": "guzzlehttp/psr7",
-            "version": "1.4.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/guzzle/psr7.git",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
-                "reference": "f5b8a8512e2b58b0071a7280e39f14f72e05d87c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.4.0",
-                "psr/http-message": "~1.0"
-            },
-            "provide": {
-                "psr/http-message-implementation": "1.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "~4.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.4-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "GuzzleHttp\\Psr7\\": "src/"
-                },
-                "files": [
-                    "src/functions_include.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                },
-                {
-                    "name": "Tobias Schultze",
-                    "homepage": "https://github.com/Tobion"
-                }
-            ],
-            "description": "PSR-7 message implementation that also provides common utility methods",
-            "keywords": [
-                "http",
-                "message",
-                "request",
-                "response",
-                "stream",
-                "uri",
-                "url"
-            ],
-            "time": "2017-03-20 17:10:46"
-        },
-        {
             "name": "myclabs/deep-copy",
             "version": "1.6.1",
             "source": {
@@ -2862,56 +3350,6 @@
                 "xunit"
             ],
             "time": "2017-08-03 14:08:16"
-        },
-        {
-            "name": "psr/http-message",
-            "version": "1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/php-fig/http-message.git",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Psr\\Http\\Message\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
-                }
-            ],
-            "description": "Common interface for HTTP messages",
-            "homepage": "https://github.com/php-fig/http-message",
-            "keywords": [
-                "http",
-                "http-message",
-                "psr",
-                "psr-7",
-                "request",
-                "response"
-            ],
-            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",

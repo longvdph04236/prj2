@@ -12,7 +12,7 @@ use Yii;
  * @property string $address
  * @property string $phone
  * @property string $description
- * @property integer $rate
+ * @property double $rate
  * @property integer $count_rate
  * @property string $photos
  * @property integer $manager_id
@@ -22,6 +22,7 @@ use Yii;
  * @property Comments[] $comments
  * @property FcList[] $fcLists
  * @property Field[] $fields
+ * @property Pricing[] $pricings
  * @property Users $manager
  * @property District $district
  */
@@ -43,7 +44,8 @@ class Stadiums extends \yii\db\ActiveRecord
         return [
             [['name', 'address', 'phone', 'photos', 'manager_id', 'district_id'], 'required'],
             [['address', 'description', 'photos'], 'string'],
-            [['rate', 'count_rate', 'manager_id', 'district_id'], 'integer'],
+            [['rate'], 'number'],
+            [['count_rate', 'manager_id', 'district_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 15],
             [['google_map'], 'string', 'max' => 100],
@@ -94,6 +96,14 @@ class Stadiums extends \yii\db\ActiveRecord
     public function getFields()
     {
         return $this->hasMany(Field::className(), ['field_id' => 'id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getPricings()
+    {
+        return $this->hasMany(Pricing::className(), ['field_id' => 'id']);
     }
 
     /**

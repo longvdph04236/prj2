@@ -53,8 +53,20 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'san-bong/<id:.+>' => 'san-bong/index',
+                'san-bong/chi-tiet/<id:.+>' => 'san-bong/index',
+                'san-bong/xoa/<id:\d+>/<s:\d+>' => 'san-bong/xoa'
             ],
+        ],
+        'assetManager' => [
+            'bundles' => [
+                'dosamigos\google\maps\MapAsset' => [
+                    'options' => [
+                        'key' => 'AIzaSyCyyQrlF4nWCZT_x7GC0Syh5jsdcJXzoqw',
+                        'language' => 'vn',
+                        'version' => '3.1.18'
+                    ]
+                ]
+            ]
         ],
 
     ],
