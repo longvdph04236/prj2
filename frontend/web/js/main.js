@@ -29,22 +29,27 @@ $(document).ready(function () {
         //console.log($(this).val());
     });
 
-    $('#newstadiumform-city').blur(function () {
+    $('#newstadiumform-city,#filterstadiumform-city,#fclist-city').blur(function () {
         //console.log($(this).val());
+        var s = $(this);
         $.ajax({
             url: $('#city').data('href'),
             data: {n: $(this).val()},
             method: 'post',
             dataType: 'json',
             success: function(response){
-                $('#district').empty();
-                response.forEach(function(item,index){
-                    e = '<option value="'+item+'">';
-                    $('#district').append(e);
-                })
+
+                if(response != false){
+                    console.log(response);
+                    s.parents('form').find('.district').empty();
+                    response.forEach(function(item,index){
+                        e = '<option value="'+item+'">';
+                        s.parents('form').find('.district').append(e);
+                    })
+                }
             }
         })
-    })
+    });
 
     $('table a.book-a-btn').click(function () {
         var d = $(this).parent().data('date');

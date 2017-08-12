@@ -37,6 +37,7 @@ class Pricing extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+
             [['field_type', 'time_range', 'field_id'], 'required'],
             [['field_type', 'time_range', 'field_id'], 'unique', 'targetAttribute' => ['field_type', 'time_range', 'field_id']],
             [['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun', 'field_id'], 'integer'],

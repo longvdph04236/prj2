@@ -24,6 +24,7 @@ RewriteRule ^fonts/(.*)$ frontend/web/fonts/$1 [L]
 RewriteCond %{REQUEST_URI} ^/project2/common/uploads/images/
 RewriteRule ^common/uploads/images/(.*)$ common/uploads/images/$1 [L]
 
+
 RewriteCond %{REQUEST_URI} !^/project2/(frontend|backend)/web/(assets|css|img|js|fonts)/
 RewriteCond %{REQUEST_URI} !index.php
 RewriteCond %{REQUEST_FILENAME} !-f [OR]

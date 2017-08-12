@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property integer $field_id
+
  * @property string $field_type
  * @property integer $user_id
  * @property string $name
@@ -37,6 +38,7 @@ class Schedule extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+
             [['field_id', 'user_id'], 'integer'],
             [['field_type', 'date', 'time_range'], 'required'],
             [['field_type', 'time_range', 'status'], 'string'],
@@ -56,6 +58,7 @@ class Schedule extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'field_id' => 'Field ID',
+
             'field_type' => 'Field Type',
             'user_id' => 'User ID',
             'name' => 'Name',
@@ -64,6 +67,7 @@ class Schedule extends \yii\db\ActiveRecord
             'tracking_code' => 'Tracking Code',
             'create_at' => 'Create At',
             'status' => 'Status',
+
         ];
     }
 
