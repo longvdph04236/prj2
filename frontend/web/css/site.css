@@ -495,3 +495,64 @@ main {
 .photo-slider img {
     width: 100%;
 }
+
+
+
+.list-fc {
+    height: auto;
+    position: relative;
+    padding-left: 25px;
+}
+
+.list-fc h2 {
+    padding-bottom: 20px !important;
+    border-bottom: 1px solid #d4cdcd !important;
+}
+
+.list-fc h2 > i {
+    color: #5cb85c;
+    font-size: 20px;
+    margin: 0px 10px;
+}
+
+.filter-fc {
+    background-color: rgba(247, 247, 175, 0.88);
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 5px;
+}
+
+.input-line {
+    padding:0 15px;
+}
+
+.total-find ul li {
+    margin-bottom: 10px;
+    position: relative;
+    border-bottom: 1px dashed gainsboro;
+    padding: 10px 0;
+}
+
+.total-find h3 {
+    margin-top: 0px;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.total-find {
+    letter-spacing: 1px;
+}
+
+.phone.col-md-2 {
+    position: absolute;
+    right: 20px;
+    bottom: 40%;
+}
+.phone.col-md-2 i {
+    padding: 0 10px;
+    font-size: 15px;
+    color: red;
+}
+
