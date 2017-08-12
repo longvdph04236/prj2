@@ -174,4 +174,22 @@ return array (
       '@edofre/sliderpro' => $vendorDir . '/edofre/yii2-slider-pro/src',
     ),
   ),
+  'dhiraj/yii2-malihu-custom-scrollbar-plugin' => 
+  array (
+    'name' => 'dhiraj/yii2-malihu-custom-scrollbar-plugin',
+    'version' => '1.0.0.0',
+    'alias' => 
+    array (
+      '@traversient/yii/customscrollbar' => $vendorDir . '/dhiraj/yii2-malihu-custom-scrollbar-plugin',
+    ),
+  ),
+  'fedemotta/yii2-widget-datatables' => 
+  array (
+    'name' => 'fedemotta/yii2-widget-datatables',
+    'version' => '1.3.0.0',
+    'alias' => 
+    array (
+      '@fedemotta/datatables' => $vendorDir . '/fedemotta/yii2-widget-datatables',
+    ),
+  ),
 );

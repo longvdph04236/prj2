@@ -65,6 +65,7 @@ header .pull-right ul li a i {
 header ul li a {
     text-transform: uppercase;
     padding: 0 10px;
+    color:black;
 }
 
 header .pull-right ul li a {
@@ -496,8 +497,6 @@ main {
     width: 100%;
 }
 
-
-
 .list-fc {
     height: auto;
     position: relative;
@@ -556,3 +555,69 @@ main {
     color: red;
 }
 
+
+#all-fields .tab-pane {
+    padding: 15px 0;
+}
+
+.tab-pane h2 .label {
+    vertical-align: text-top;
+    margin-left: 10px;
+}
+
+table th.bg-info {
+    color:black;
+}
+
+.has-right-btn {
+    position: relative;
+}
+
+.has-right-btn .right-btn {
+    position: absolute;
+    right:0;
+    top:50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.li-notify i.fa {
+    font-size: 130%;
+    vertical-align: sub;
+}
+
+.li-notify a{
+    position: relative;
+}
+
+.li-notify span.badge {
+    position: absolute;
+    right: 5px;
+    top: -100%;
+    background-color: red;
+}
+
+table thead tr th {
+    text-align: center;
+}
+
+#noti-table td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+#noti-table .label {
+    font-size:15px;
+}
+
+.list-stadium .thumb-content img {
+    width: 100%;
+}
+
+.list-stadium li {
+    border-bottom:1px dashed #e1e1e1;
+    padding: 15px 0;
+}

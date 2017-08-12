@@ -8,9 +8,10 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '2cffec82183ee1cea088009cef9a6fc3' => __DIR__ . '/..' . '/ezyang/htmlpurifier/library/HTMLPurifier.composer.php',
-        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '180092cfc969a12e06f2132a203a3184' => __DIR__ . '/..' . '/codeception/verify/src/Codeception/function.php',
     );
 
@@ -28,6 +29,10 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
             'yii\\authclient\\' => 15,
             'yii\\' => 4,
         ),
+        't' => 
+        array (
+            'traversient\\yii\\customscrollbar\\' => 32,
+        ),
         'r' => 
         array (
             'rmrevin\\yii\\fontawesome\\' => 24,
@@ -44,6 +49,10 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
             'kartik\\file\\' => 12,
             'kartik\\base\\' => 12,
         ),
+        'f' => 
+        array (
+            'fedemotta\\datatables\\' => 21,
+        ),
         'e' => 
         array (
             'edofre\\sliderpro\\' => 17,
@@ -51,6 +60,7 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         'd' => 
         array (
             'dosamigos\\tinymce\\' => 18,
+            'dosamigos\\google\\maps\\' => 22,
             'dosamigos\\gallery\\' => 18,
             'dmstr\\' => 6,
         ),
@@ -84,6 +94,8 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
         ),
         'F' => 
         array (
@@ -142,6 +154,10 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
         ),
+        'traversient\\yii\\customscrollbar\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dhiraj/yii2-malihu-custom-scrollbar-plugin',
+        ),
         'rmrevin\\yii\\fontawesome\\' => 
         array (
             0 => __DIR__ . '/..' . '/rmrevin/yii2-fontawesome',
@@ -172,6 +188,10 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         array (
             0 => __DIR__ . '/..' . '/kartik-v/yii2-krajee-base',
         ),
+        'fedemotta\\datatables\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/fedemotta/yii2-widget-datatables',
+        ),
         'edofre\\sliderpro\\' => 
         array (
             0 => __DIR__ . '/..' . '/edofre/yii2-slider-pro/src',
@@ -179,6 +199,10 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         'dosamigos\\tinymce\\' => 
         array (
             0 => __DIR__ . '/..' . '/2amigos/yii2-tinymce-widget/src',
+        ),
+        'dosamigos\\google\\maps\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/2amigos/yii2-google-maps-library',
         ),
         'dosamigos\\gallery\\' => 
         array (
@@ -251,6 +275,14 @@ class ComposerStaticInit420e525a089fbe1ab3f603d8c4465b94
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
         'Faker\\' => 
         array (

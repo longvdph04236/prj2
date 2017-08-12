@@ -7,10 +7,14 @@ return [
             'username' => 'samwicky_admin',
             'password' => '18101911',
             'charset' => 'utf8',*/
+            /*'dsn' => 'mysql:host=mysql.hostinger.vn;dbname=u107395002_db',
+            'username' => 'u107395002_admin',
+            'password' => '18101911',
+            'charset' => 'utf8',*/
             'dsn' => 'mysql:host=localhost;dbname=timsan',
             'username' => 'root',
-            'password' => '',
-            'charset' => 'utf8',
+            'password' => '18101911',
+            'charset' => 'utf8'
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

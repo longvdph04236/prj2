@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Url;
+use common\models\Schedule;
+use common\models\Stadiums;
 ?>
 <div id="fb-root"></div>
 <script>
@@ -91,6 +93,23 @@ use yii\helpers\Url;
                                     <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
                                 </ul>
                             </li>
+                            <li class="li-notify"><a title="Thông báo" href="<?= Url::toRoute('thong-bao/') ?>"><i class="fa fa-bell" aria-hidden="true"></i><span class="badge"><?php
+                                        if($user->type == 'manager'){
+                                            $stadiums = Stadiums::findAll(['manager_id'=>$user->id]);
+                                            $fid = array();
+                                            foreach ($stadiums as $stadium){
+                                                $fields = $stadium['fields'];
+                                                foreach ($fields as $field){
+                                                    $fid[] = $field['id'];
+                                                }
+                                            }
+
+                                            $query = Schedule::find()->where(['in','field_id',$fid])->andWhere(['status'=>'new'])->count();
+                                        } else {
+                                            $query = Schedule::find()->where(['user_id'=>$user->id,'status'=>'new'])->count();
+                                        }
+                                        echo $query;
+                                        ?></span></a></li>
                             <?php
                             if($user->type == 'manager'){
                                 ?>

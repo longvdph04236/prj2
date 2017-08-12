@@ -12,7 +12,7 @@ use Yii;
  * @property string $address
  * @property string $phone
  * @property string $description
- * @property integer $rate
+ * @property double $rate
  * @property integer $count_rate
  * @property string $photos
  * @property integer $manager_id
@@ -44,7 +44,8 @@ class Stadiums extends \yii\db\ActiveRecord
         return [
             [['name', 'address', 'phone', 'photos', 'manager_id', 'district_id'], 'required'],
             [['address', 'description', 'photos'], 'string'],
-            [['rate', 'count_rate', 'manager_id', 'district_id'], 'integer'],
+            [['rate'], 'number'],
+            [['count_rate', 'manager_id', 'district_id'], 'integer'],
             [['name'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 15],
             [['google_map'], 'string', 'max' => 100],
