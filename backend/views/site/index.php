@@ -1,53 +1,50 @@
 <?php
+use backend\models\Users;
+use backend\models\City;
+use backend\models\District;
+use backend\models\Comments;
+use backend\assets\AppAsset;
+AppAsset::register($this);
 
-/* @var $this yii\web\View */
+$countUser = Users::find()->count();
+$countCity = City::find()->count();
+$countDistrict = District::find()->count();
+$countComment = Comments::find()->count();
 
-$this->title = 'My Yii Application';
+$host = 'http://'.$_SERVER['HTTP_HOST'];
+$homeUrl = yii::$app->urlManager->baseUrl;
+$this->title = 'Admin system';
 ?>
-<div class="site-index">
+<div class="row index-admin">
+    <div class="col-md-3">
+        <a  title="Quản lý User" href="<?=$host.$homeUrl?>/user/index" class="tile-box tile-box-shortcut btn-danger">
 
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+            <div class="title-header"><i class="fa fa-users" aria-hidden="true"></i> User</div>
+            <span class="bs-badge badge-absolute"><?= $countUser?></span>
+        </a>
     </div>
+    <div class="col-md-3">
+        <a  title="Quản lý Khu vực" href="<?=$host.$homeUrl?>/city/index" class="tile-box tile-box-shortcut btn-success">
 
-    <div class="body-content">
+            <div class="title-header"><i class="fa fa-globe"></i> City</div>
+            <span class="bs-badge badge-absolute"><?= $countCity?></span>
 
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a  title="Quản Lý Khu vực" href="<?=$host.$homeUrl?>/district/index" class="tile-box tile-box-shortcut btn-info">
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+            <div class="title-header"><i class="fa fa-map-signs"></i> District</div>
+            <span class="bs-badge badge-absolute"><?= $countDistrict?></span>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+        </a>
+    </div>
+    <div class="col-md-3">
+        <a title="Quản lÝ Comments" href="<?=$host.$homeUrl?>/comment/index" class="tile-box tile-box-shortcut btn-primary">
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+            <div class="title-header"><i class="fa fa-comments" aria-hidden="true"></i> Comments</div>
+            <span class="bs-badge badge-absolute"><?= $countComment?></span>
 
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
+        </a>
     </div>
 </div>
