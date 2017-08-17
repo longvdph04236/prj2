@@ -81,9 +81,9 @@
                         'format'=>'raw',
                         'value'=>function($model) {
                                 if($model->status === 'inactive') {
-                                    return "chưa kích hoạt";
+                                    return "Chưa kích hoạt";
                                 }else {
-                                    return 'chưa kích hoạt';
+                                    return 'Đã kích hoạt';
                                 }
 
                         },

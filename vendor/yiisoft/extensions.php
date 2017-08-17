@@ -129,15 +129,6 @@ return array (
       '@kartik/base' => $vendorDir . '/kartik-v/yii2-krajee-base',
     ),
   ),
-  'kartik-v/yii2-widget-fileinput' => 
-  array (
-    'name' => 'kartik-v/yii2-widget-fileinput',
-    'version' => '9999999-dev',
-    'alias' => 
-    array (
-      '@kartik/file' => $vendorDir . '/kartik-v/yii2-widget-fileinput',
-    ),
-  ),
   'kartik-v/yii2-widget-rating' => 
   array (
     'name' => 'kartik-v/yii2-widget-rating',
@@ -190,6 +181,15 @@ return array (
     'alias' => 
     array (
       '@fedemotta/datatables' => $vendorDir . '/fedemotta/yii2-widget-datatables',
+    ),
+  ),
+  '2amigos/yii2-file-input-widget' => 
+  array (
+    'name' => '2amigos/yii2-file-input-widget',
+    'version' => '1.0.2.0',
+    'alias' => 
+    array (
+      '@dosamigos/fileinput' => $vendorDir . '/2amigos/yii2-file-input-widget/src',
     ),
   ),
 );

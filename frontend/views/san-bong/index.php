@@ -20,7 +20,10 @@ if(Yii::$app->session->has('f')){
     ToastrWidget::widget(['type'=>'error','message'=>Yii::$app->session->getFlash('f')]);
 }
 ini_set('max_execution_time', 300);
-$logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
+if(!Yii::$app->user->isGuest)
+{
+    $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
+}
 ?>
 <div class="container">
     <div class="row">
@@ -88,7 +91,7 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
                             </li>
                         <?php
                         }
-                        if($logged_user->type == 'manager') {
+                        if(isset($logged_user) && $logged_user->type == 'manager') { //////Thêm sân mới tab
                             ?>
 
                             <li role="presentation" <?= (count($fields)==0)? 'class="active"':'' ?>><a href="#add-new-field"
@@ -104,6 +107,7 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <?php
+                        date_default_timezone_set('Asia/Bangkok');
                         $today = date('d/m/Y');
                         $today_day = date('l');
                         $thu = [
@@ -121,7 +125,16 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
                         ?>
                         <div role="tabpanel" class="tab-pane fade <?= ($key==0)? 'in active':'' ?>" id="field-<?=$f['id']?>">
                             <h2 class="clearfix">Lịch thi đấu <?= $f['name']?><small><span class="label label-info">Sân <?= $f['field_type']?> người</span></small>
-                                <a href="<?= \yii\helpers\Url::toRoute(['san-bong/xoa', 'id'=>$f['id'],'s'=>$info['stadium']['id']])?>"><button class="pull-right btn btn-danger">Xóa sân</button></a></h2>
+                                <?php
+                                if(isset($logged_user) && $logged_user->type == 'manager') {
+                                    ?>
+                                    <a href="<?= \yii\helpers\Url::toRoute(['san-bong/xoa', 'id' => $f['id'], 's' => $info['stadium']['id']]) ?>">
+                                        <button class="pull-right btn btn-danger">Xóa sân</button>
+                                    </a>
+                                    <?php
+                                }
+                                ?>
+                            </h2>
                             <table data-type="<?=$f['field_type']?>" class="table table-striped table-bordered table-definition mb-5">
                                 <thead class="table-warning">
                                 <tr>
@@ -159,13 +172,13 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
                                             $date = date('Y-m-d',strtotime('+'.$i.' day'));
                                             $sch = Schedule::find()->where(['date'=>$date,'time_range'=>$time,'field_id'=>$f['id']])->andWhere(['not', ['tracking_code' => null]])->one();
                                             ?>
-                                        <td align="center" <?= (count($sch) != 0) ? 'class="bg-success"':'' ?> data-date="<?= $date;?>" data-time="<?= $time;?>">
+                                        <td align="center" <?= (count($sch) != 0) ? 'class="bg-success"':'' ?> data-date="<?= $date;?>" data-time="<?= $time;?>" <?= (count($sch) != 0) ? 'id="'.$sch['id'].'"':'' ?>>
                                             <?php
                                             if(count($sch) != 0){
                                                 $booked_user = $sch['user'];
-                                                echo '<p><b>'.$booked_user['fullname'].'</b></p>';
-                                                echo '<p>Mã đặt sân: '.$sch['tracking_code'].'</p>';
-                                                if($logged_user->type == 'manager'){
+                                                echo '<p><b>'.$sch['name'].'</b></p>';
+                                                echo '<span>Mã: <b class="text-success">'.$sch['tracking_code'].'</b></span>';
+                                                if(isset($logged_user) && $logged_user->type == 'manager'){
                                                 ?>
                                                 <a href="<?= \yii\helpers\Url::toRoute(['san-bong/xoa-lich', 'id' => $sch['id']]) ?>">Xóa</a>
                                             <?php
@@ -173,9 +186,16 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
                                             } else {
                                                 ?>
                                                 <p><small><i>Sân trống</i></small></p>
-                                                <a href="" class="book-a-btn" data-toggle="modal" data-target="#bookModal">Đặt sân</a>
                                                 <?php
-
+                                                if(Yii::$app->user->isGuest){
+                                                    ?>
+                                                    <a href="" class="login-a-btn" data-toggle="modal" data-target="#loginModal"><span class="text-danger text-uppercase">Đặt sân</span></a>
+                                                    <?php
+                                                } else {
+                                                    ?>
+                                                    <a href="" class="book-a-btn" data-toggle="modal" data-target="#bookModal"><span class="text-danger text-uppercase">Đặt sân</span></a>
+                                                    <?php
+                                                }
                                             }
                                             ?>
                                         </td>
@@ -190,9 +210,9 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
                         </div>
                         <?php
                         }
-                        if($logged_user->type == 'manager') {
+                        if(isset($logged_user) && $logged_user->type == 'manager') {
                             ?>
-                            <div role="tabpanel" class="tab-pane fade" id="add-new-field">
+                            <div role="tabpanel" class="tab-pane fade <?= (count($fields)==0)? 'in active':'' ?>" id="add-new-field">
                                 <?php $form = ActiveForm::begin([
                                     'id' => 'add-field-form',
                                     'layout' => 'horizontal',
@@ -245,7 +265,7 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
             <hr>
             <?php
             if(count($info['stadium']['fields']) == 0) {
-                if($logged_user->type == 'manager'){
+                if(isset($logged_user) && $logged_user->type == 'manager'){
                     echo "Bạn cần thêm một sân nhỏ trước!";
                 } else {
                     echo "Hiện sân chưa có báo giá.";
@@ -278,7 +298,7 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
                             <?php
                             $price = \common\models\Pricing::find()->where(['field_id'=>$info['stadium']['id']])->andWhere(['field_type'=>(string)$v])->all();
                             if(count($price) == 0){
-                                if($logged_user->type == 'member'){
+                                if((isset($logged_user) && $logged_user->type == 'member') || Yii::$app->user->isGuest){
                                     echo 'Hiện sân chưa có báo giá cho loại sân này.';
                                 } else {
                                     $form1 = ActiveForm::begin([
@@ -364,7 +384,7 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
                                     ActiveForm::end();
                                 }
                             } else {
-                                if($logged_user->type == 'member'){
+                                if((isset($logged_user) && $logged_user->type == 'member') || Yii::$app->user->isGuest){
                                     ?>
                                     <table class="table table-striped table-bordered table-definition mb-5">
                                     <thead class="table-warning ">
@@ -390,13 +410,13 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
                                             <td>
                                                 <?= $time ?>
                                             </td>
-                                            <td align="center"><?= ($pr['mon'] != 0)? number_format($pr['mon'],0,',','.').' đ':'<i>Chưa có giá</i>' ?></td>
-                                            <td align="center"><?= ($pr['tue'] != 0)? number_format($pr['tue'],0,',','.').' đ':'<i>Chưa có giá</i>' ?></td>
-                                            <td align="center"><?= ($pr['wed'] != 0)? number_format($pr['wed'],0,',','.').' đ':'<i>Chưa có giá</i>' ?></td>
-                                            <td align="center"><?= ($pr['thu'] != 0)? number_format($pr['thu'],0,',','.').' đ':'<i>Chưa có giá</i>' ?></td>
-                                            <td align="center"><?= ($pr['fri'] != 0)? number_format($pr['fri'],0,',','.').' đ':'<i>Chưa có giá</i>' ?></td>
-                                            <td align="center"><?= ($pr['sat'] != 0)? number_format($pr['sat'],0,',','.').' đ':'<i>Chưa có giá</i>' ?></td>
-                                            <td align="center"><?= ($pr['sat'] != 0)? number_format($pr['sun'],0,',','.').' đ':'<i>Chưa có giá</i>' ?></td>
+                                            <td align="center"><?= ($pr['mon'] != 0)? '<b class="text-success">'.number_format($pr['mon'],0,',','.').' đ</b> ':'<small><i>Chưa có giá</i></small>' ?></td>
+                                            <td align="center"><?= ($pr['tue'] != 0)? '<b class="text-success">'.number_format($pr['tue'],0,',','.').' đ</b> ':'<small><i>Chưa có giá</i></small>' ?></td>
+                                            <td align="center"><?= ($pr['wed'] != 0)? '<b class="text-success">'.number_format($pr['wed'],0,',','.').' đ</b> ':'<small><i>Chưa có giá</i></small>' ?></td>
+                                            <td align="center"><?= ($pr['thu'] != 0)? '<b class="text-success">'.number_format($pr['thu'],0,',','.').' đ</b> ':'<small><i>Chưa có giá</i></small>' ?></td>
+                                            <td align="center"><?= ($pr['fri'] != 0)? '<b class="text-success">'.number_format($pr['fri'],0,',','.').' đ</b> ':'<small><i>Chưa có giá</i></small>' ?></td>
+                                            <td align="center"><?= ($pr['sat'] != 0)? '<b class="text-success">'.number_format($pr['sat'],0,',','.').' đ</b> ':'<small><i>Chưa có giá</i></small>' ?></td>
+                                            <td align="center"><?= ($pr['sat'] != 0)? '<b class="text-success">'.number_format($pr['sun'],0,',','.').' đ</b> ':'<small><i>Chưa có giá</i></small>' ?></td>
                                         </tr>
                                         <?php
                                     }
@@ -622,7 +642,7 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
             if(Yii::$app->user->isGuest){
                 echo 'Bạn phải <a href="" id="login-a-btn" data-toggle="modal" data-target="#loginModal">đăng nhập</a> mới có thể đánh giá';
             } else {
-                if($logged_user->type == 'member'){
+                if(isset($logged_user) && $logged_user->type == 'member'){
                     $cmt_form = ActiveForm::begin([
                         'id' => 'add-comment-form',
                         'enableClientValidation' => true,
@@ -749,9 +769,13 @@ $logged_user = \common\models\User::findOne(Yii::$app->user->identity->getId());
                     if(Yii::$app->user->isGuest || (!Yii::$app->user->isGuest && $logged_user->type == 'manager')){
                         echo $book_form->field($sModel,'name')->textInput(['placeholder'=>'Tên người đặt lịch'])->label('Họ và tên');
                     } else {
-                        echo $book_form->field($sModel,'name')->textInput(['placeholder'=>'Tên người đặt lịch', 'value'=>$logged_user->fullname,'disabled'=>'disabled'])->label('Họ và tên');
+                        echo $book_form->field($sModel,'name')->textInput(['placeholder'=>'Tên người đặt lịch', 'value'=>$logged_user->fullname])->label('Họ và tên');
                     }
-                    echo $book_form->field($sModel,'user_id')->hiddenInput(['value'=>$logged_user->id])->label(false);
+                    if(isset($logged_user)){
+                        echo $book_form->field($sModel,'user_id')->hiddenInput(['value'=>$logged_user->id])->label(false);
+                    } else {
+                        echo $book_form->field($sModel,'user_id')->hiddenInput()->label(false);
+                    }
                     ?>
                     <?= $book_form->field($sModel,'date')->input('date')->label('Ngày') ?>
                     <?php

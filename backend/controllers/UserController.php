@@ -29,10 +29,6 @@ class UserController extends Controller
         return $this->render('view',['model'=>$this->FindModel()]);
     }
 
-    public function actionCreate() {
-
-    }
-
     public function actionDelete() {
         $this->FindModel()->delete();
         return $this->redirect('index');

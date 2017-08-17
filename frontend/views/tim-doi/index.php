@@ -7,6 +7,7 @@
     use conquer\toastr\ToastrWidget;
     use yii\widgets\LinkPager;
 
+
     if(Yii::$app->session->has('success')) {
         ToastrWidget::widget(['message'=>Yii::$app->session->getFlash('success',true)]);
     }
@@ -23,7 +24,7 @@
                 'validateOnBlur' => true,
                 'validationUrl' => \yii\helpers\Url::toRoute('tim-doi/ajax-validate')
             ]); ?>
-                <?= $form->field($model,'name')->textInput(['placeholder'=>'Tên sân bóng...'])?>
+
             <?= $form->field($model, 'city',['validateOnChange'=>true])->input('text',['list'=>'city','placeholder' => 'Chọn tỉnh/thành phố'])->label('Tỉnh/thành phố:') ?>
             <datalist id="city" data-href="<?= \yii\helpers\Url::toRoute(['tim-doi/get-district'])?>">
                 <?php
@@ -36,36 +37,29 @@
                     ?>
             </datalist>
             <?= $form->field($model, 'district')->input('text',['list'=>'district','placeholder' => 'Chọn quận/huyện'])->label('Quận/huyện:') ?>
-            <datalist id="district">
+            <datalist id="district" class="district">
 
             </datalist>
+            <?php
+            $type = \common\models\Schedule::getTableSchema()->getColumn('time_range');
+            $time_range = [];
+            foreach ($type->enumValues as $value ) {
+                $time_range[$value] = $value;
+            }
+            ?>
+            <?= $form->field($model, 'time')->dropDownList($time_range,['prompt'=>'Chọn khung giờ'])->label('Khung giờ:') ?>
+            <?= $form->field($model, 'date')->input('date')->label('Ngày:') ?>
             <?php
                 $type = \common\models\Field::getTableSchema()->getColumn('field_type');
                 $checkbox = [];
                 foreach ($type->enumValues as $value ) {
-                    $checkbox[] = 'Sân '.$value.' người';
+                    $checkbox[$value] = 'Sân '.$value.' người';
                 }
             ?>
             <?= $form->field($model, 'type')->checkboxList($checkbox)->label('Loại sân là:') ?>
-            <?= $form->field($model,'price')->input('range')?>
-            <?= $form->field($model,'rating')->widget(StarRating::Classname(),[
-                'name' => 'rating',
-                'pluginOptions' => [
-                    'showClear'=>true,
-                    'theme' => 'krajee-fa',
-                    'step' => 0.1,
-                    'readonly' => false,
-                    'size' => 'xs',
-                    'filledStar' => '<i class="fa fa-star" aria-hidden="true"></i>',
-                    'emptyStar' => '<i class="fa fa-star-o" aria-hidden="true"></i>',
-                    'min' => 0,
-                    'max' => 5,
-                    'showCaption' => false
-                ],
 
-            ]);?>
             <div class="text-center">
-                <?= Html::SubmitButton('<i class="fa fa-search"></i>Tìm Kiếm',['class'=>'btn btn-success'])?>
+                <?= Html::SubmitButton('<i class="fa fa-search"></i> Tìm Kiếm',['class'=>'btn btn-success','name'=>'filter-option', 'value'=>'OK'])?>
             </div>
 
             <?php ActiveForm::end(); ?>
@@ -81,19 +75,19 @@
                         'validateOnBlur' => true,
                         'validationUrl' => \yii\helpers\Url::toRoute(['tim-doi/ajax-validate-fc'])
                     ]); ?>
-                    <h2 class="clearfix"><i class="fa fa-clipboard" aria-hidden="true"></i>Đăng tin tìm đối
-                        <?= Html::button('<i class="fa fa-plus"></i> Đăng Tin',['type'=> 'submit', 'class'=> 'btn btn-success  pull-right']) ?>
+                    <h2 class="clearfix"><i class="fa fa-clipboard" aria-hidden="true"></i>Đăng tin tìm đối tác
+                        <?= Html::button('<i class="fa fa-plus"></i> Đăng Tin',['type'=> 'submit','name' =>'post-tin', 'class'=> 'btn btn-success  pull-right']) ?>
                     </h2>
 
                     <div class="row input-line">
                         <?= $form1->field($modelForm,'img')->widget(FileInput::ClassName(),[
-                            'options' => ['accept' => 'image/*', 'multiple' => true],
+                            'options' => ['accept' => 'image/*'],
                         ])->label('Ảnh đội bóng:');?>
                     </div>
 
                     <div class="row">
                         <div class="col-md-8">
-                            <?= $form1->field($modelForm,'fc_name')->textInput(['placeholder'=>'Tiêu đề bài viết'])->label('Tiêu đề:')?>
+                            <?= $form1->field($modelForm,'fc_name')->textInput(['placeholder'=>'Tên đội bóng'])->label('Tên đội bóng:')?>
                         </div>
 
                         <div class="col-md-4">
@@ -154,35 +148,62 @@
            <?php } ?>
 
             <div class="total-find">
-                <ul class="row">
-                    <h2 class="clearfix"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Tin tìm đối</h2>
+                <ul>
+                    <h2 class="clearfix"><i class="fa fa-newspaper-o" aria-hidden="true"></i>Tin tìm đối tác</h2>
                         <?php
 
-                        foreach ($show as $value){
-                            $d = \common\models\District::findOne($value['district_id']);
-                            $c = \common\models\City::findOne($d->getAttribute('city_id'));
-                        ?>
-                            <li class="row">
-                                <div class="thumb-container col-md-4">
-                                    <img src="<?= Yii::$app->params['appFolder'].'/uploads/images/'.$value['photo'];
-                                    ?>" alt="" width="100%" height="200" >
-                                </div>
-                                <div class="stadium-info col-md-6">
-                                    <h3><a href="#"><?= $value['fc_name']?></a></h3>
-                                    <p><b><i class="fa fa-map-signs"></i> Quận/huyện:</b> <?= $d->getAttribute('name') ?></p>
-                                    <p><b><i class="fa fa-globe"></i> Tỉnh/thành phố:</b> <?= $c->getAttribute('name') ?></p>
-                                    <p><b><i class="fa fa-calendar-o"></i> Lịch Đấu:</b> <?= $value['kickoff'] ?></p>
-                                    <p><b><i class="fa fa-check-square" ></i> Đã thuê sân:</b> <?= ($value['rented']=='yes') ? 'Đã có sân' : 'Chưa có sân'; ?></p>
-                                    <p><b><i class="fa fa-users"></i> Đấu :</b> <?= 'đội '. $value['field_type'] . ' người'; ?></p>
-                                    <p><b><i class="fa fa-commenting"></i> Ghi chú:</b> <?= strip_tags($value['description']);?></p>
-                                </div>
-                                <div class="phone col-md-2">
-                                    <button class="btn btn-primary"><i class="fa fa-phone" aria-hidden="true"></i><?= $value['phone']?></button>
-                                </div>
-                            </li>
-                            <?php
+                        if(empty($show)){
+                            echo 'Không có tin bắt kèo nào phù hợp với tìm kiếm';
+                        } else {
+
+                            foreach ($show as $value) {
+                                $d = \common\models\District::findOne($value['district_id']);
+                                $c = \common\models\City::findOne($d->getAttribute('city_id'));
+                                ?>
+                                <li>
+                                    <div class="row">
+                                        <div class="thumb-container col-md-4">
+                                            <img src="<?= Yii::$app->params['appFolder'] . '/uploads/images/' . $value['photo'];
+                                            ?>" alt="" width="100%" height="200">
+                                        </div>
+                                        <div class="stadium-info col-md-6">
+                                            <h3><a href="#"><?= $value['fc_name'] ?></a></h3>
+                                            <p><b><i class="fa fa-map-signs"></i>
+                                                    Quận/huyện:</b> <?= $d->getAttribute('name') ?></p>
+                                            <p><b><i class="fa fa-globe"></i> Tỉnh/thành
+                                                    phố:</b> <?= $c->getAttribute('name') ?></p>
+                                            <p><b><i class="fa fa-calendar-o"></i> Lịch
+                                                    Đấu:</b> <?= date('H:i:s d-m-Y', strtotime($value['kickoff'])) ?>
+                                            </p>
+                                            <p><b><i class="fa fa-check-square"></i> Đã thuê
+                                                    sân:</b> <?= ($value['rented'] == 'yes') ? 'Đã có sân' : 'Chưa có sân'; ?>
+                                            </p>
+                                            <p><b><i class="fa fa-users"></i> Đấu
+                                                    :</b> <?= 'đội ' . $value['field_type'] . ' người'; ?></p>
+                                            <p><b><i class="fa fa-commenting"></i> Ghi
+                                                    chú:</b> <?= strip_tags($value['description']); ?></p>
+                                        </div>
+                                        <div class="phone col-md-2">
+                                            <?php
+                                            $now = date('Y-m-d H:i:s');
+                                            if($now > $value['kickoff']){
+                                                ?>
+                                                <button class="btn btn-danger"><i class="fa fa-times" aria-hidden="true"></i> Hết hạn</button>
+                                                <?php
+                                            } else {
+                                                ?>
+                                                <button class="btn btn-success"><i class="fa fa-phone"
+                                                                                   aria-hidden="true"></i><?= $value['phone'] ?>
+                                                </button>
+                                                <?php
+                                            }
+                                            ?>
+                                        </div>
+                                    </div>
+                                </li>
+                                <?php
+                            }
                         }
-                        echo '</ul>';
                         ?>
 
                     </ul>

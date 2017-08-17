@@ -128,3 +128,8 @@ tbody tr td:first-child {
     max-height:250px;
     overflow-y: auto;
 }
+
+table tbody tr td > * {
+    margin-bottom: 5px;
+    display: block;
+}

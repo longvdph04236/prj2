@@ -6,6 +6,8 @@ use yii\helpers\Html;
 use frontend\assets\AppAsset;
 use frontend\assets\HomeAsset;
 use yii\helpers\Url;
+use common\models\Schedule;
+use common\models\Stadiums;
 
 AppAsset::register($this);
 HomeAsset::register($this);
@@ -115,6 +117,23 @@ HomeAsset::register($this);
                                         <li><a href="<?= Url::toRoute('user/dang-xuat')?>"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
                                     </ul>
                                 </li>
+                                <li class="li-notify"><a title="Thông báo" href="<?= Url::toRoute('thong-bao/') ?>"><i class="fa fa-bell" aria-hidden="true"></i><span class="badge"><?php
+                                            if($user->type == 'manager'){
+                                                $stadiums = Stadiums::findAll(['manager_id'=>$user->id]);
+                                                $fid = array();
+                                                foreach ($stadiums as $stadium){
+                                                    $fields = $stadium['fields'];
+                                                    foreach ($fields as $field){
+                                                        $fid[] = $field['id'];
+                                                    }
+                                                }
+
+                                                $query = Schedule::find()->where(['in','field_id',$fid])->andWhere(['status'=>'new'])->count();
+                                            } else {
+                                                $query = Schedule::find()->where(['user_id'=>$user->id,'status'=>'new'])->count();
+                                            }
+                                            echo $query;
+                                            ?></span></a></li>
                                 <?php
                                 if($user->type == 'manager'){
                                     ?>
@@ -130,78 +149,7 @@ HomeAsset::register($this);
         </div>
     </header>
     <main>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h2 class="text-center">Welcome</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12 three">
-                    <div class="tab" role="tabpanel">
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#by-time" aria-controls="home" role="tab" data-toggle="tab">Tìm kiếm theo giờ</a></li>
-                            <li role="presentation"><a href="#by-name" aria-controls="home" role="tab" data-toggle="tab">Tìm kiếm theo tên</a></li>
-                            <li role="presentation"><a href="#by-id" aria-controls="home" role="tab" data-toggle="tab">Tra mã đặt sân</a></li>
-                        </ul>
-                        <!-- Tab panes -->
-                        <div class="tab-content tabs">
-                            <div role="tabpanel" class="tab-pane fade in active" id="by-time">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <input class="form-control" type="date" name="date">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-control" name="city">
-                                            <option value="0">Thành phố</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <select class="form-control" name="city">
-                                            <option value="0">Quận/huyện</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="by-name">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input class="form-control" type="text" placeholder="Tên sân bóng" name="name">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select class="form-control" name="city">
-                                            <option value="0">Thành phố</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <select class="form-control" name="city">
-                                            <option value="0">Quận/huyện</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane fade" id="by-id">
-                                <div class="row">
-                                    <div class="col-md-10">
-                                        <input class="form-control" type="text" placeholder="Mã tra cứu" name="name">
-                                    </div>
-                                    <div class="col-md-2">
-                                        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <?= $content ?>
     </main>
     <footer>
         <div class="container">

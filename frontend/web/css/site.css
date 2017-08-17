@@ -509,9 +509,8 @@ main {
 }
 
 .list-fc h2 > i {
-    color: #5cb85c;
     font-size: 20px;
-    margin: 0px 10px;
+    margin: 0px 10px 0 0;
 }
 
 .filter-fc {
@@ -546,13 +545,14 @@ main {
 
 .phone.col-md-2 {
     position: absolute;
-    right: 20px;
-    bottom: 40%;
+    right: 0;
+    bottom: 10px;
+    padding: 0;
+    text-align: right;
 }
 .phone.col-md-2 i {
-    padding: 0 10px;
+    margin-right: 10px;
     font-size: 15px;
-    color: red;
 }
 
 
@@ -610,7 +610,8 @@ table thead tr th {
 }
 
 #noti-table .label {
-    font-size:15px;
+    font-size:14px;
+    font-weight: normal;
 }
 
 .list-stadium .thumb-content img {
@@ -620,4 +621,134 @@ table thead tr th {
 .list-stadium li {
     border-bottom:1px dashed #e1e1e1;
     padding: 15px 0;
+}
+
+div.flex-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+div.flex-box > p {
+    width:50%;
+}
+
+.stadium-info .flex-box p b{
+    display: inline-block;
+    min-width: 130px;
+}
+
+.stadium-info .flex-box p b i, .stadium-info > p b i {
+    display: inline-block;
+    min-width: 20px;
+}
+
+.stadium-info > p:last-child {
+    margin-bottom: 0;
+}
+
+/* ------------------------*/
+.img-holder {
+    width: 200px;
+    height: 300px;
+    border: 1px dashed grey;
+    border-radius: 10px;
+    position: relative;
+    float: left;
+    margin: 0 20px 20px 0;
+    overflow: hidden;
+}
+
+.img-holder:hover{
+    border-color: red;
+}
+
+.img-holder.has-img .add-img{
+    display: none;
+}
+
+.img-holder.has-img .overlay-grp-btn:hover {
+    background: rgba(0,0,0,0.5);
+}
+
+.img-holder.has-img .overlay-grp-btn:hover .edit-grp-btn {
+    display: flex;
+}
+
+.img-holder.has-img:hover .overlay-grp-btn .edit-grp-btn button {
+    color:white;
+}
+
+.img-holder.has-img img.img-display {
+    display: block;
+}
+
+.form-group.field-newstadiumform-photos{
+    visibility: hidden;
+    overflow: hidden;
+}
+
+.overlay-grp-btn {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top:0;
+    left:0;
+    z-index: 10;
+}
+
+.overlay-grp-btn button {
+    background: none;
+    border:none;
+    color: grey;
+    font-size:30px;
+}
+
+.overlay-grp-btn .add-img {
+    position: absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 100%;
+    height:100%;
+}
+
+.overlay-grp-btn:hover .add-img {
+    color: red;
+}
+
+.overlay-grp-btn .edit-grp-btn {
+    position: absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: 100%;
+    text-align: center;
+    justify-content: space-around;
+    display: none;
+}
+
+.overlay-grp-btn .edit-grp-btn button:hover {
+    color:red !important;
+}
+
+.img-holder img.img-display {
+    width:100%;
+    top:50%;
+    left:50%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    position: absolute;
+    display: none;
+    z-index: 1;
 }

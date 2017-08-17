@@ -24,13 +24,16 @@
         "conquer/toastr": "*",
         "2amigos/yii2-tinymce-widget": "~1.1",
         "kolyunya/yii2-map-input-widget": "^1.1",
-        "kartik-v/yii2-widget-fileinput": "@dev",
+
         "kartik-v/yii2-widget-rating": "*",
         "2amigos/yii2-gallery-widget": "~1.0",
         "edofre/yii2-slider-pro": "V1.1.6",
         "dhiraj/yii2-malihu-custom-scrollbar-plugin": "~1.0",
         "2amigos/yii2-google-maps-library": "*",
-        "fedemotta/yii2-widget-datatables": "*"
+        "fedemotta/yii2-widget-datatables": "*",
+        "2amigos/yii2-file-input-widget": "~1.0.2"
+
+
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

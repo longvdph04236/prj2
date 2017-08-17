@@ -86,7 +86,7 @@ class UserController extends \yii\web\Controller
         }
         if(Yii::$app->request->isPost){
             if($model->load(Yii::$app->request->post()) && $model->login()){
-                return $this->goHome();
+                return $this->goBack();
             }
         }
         if(\Yii::$app->request->isAjax){
@@ -212,9 +212,11 @@ class UserController extends \yii\web\Controller
         }
     }
 
-    private function smsTo($phone, $mess){
-        $username = "841658892451";
-        $password = "7185";
+    public function smsTo($phone, $mess){
+        $username = "84966047169";
+        $password = "2193";
+        /*$username = "84987551561";
+        $password = "7532";*/
         $mobile = $phone;
         $sender = "YeuBongDa";
         $message = $mess;
@@ -238,7 +240,7 @@ class UserController extends \yii\web\Controller
             if($model->load(Yii::$app->request->post())) {
                 if($model->validate()) {
                     $newPassword = Yii::$app->security->generateRandomString(6);
-                    $mess = 'Mat khau moi: '.$newPassword.'. Ban vui long dang nhap lại de doi lai mat khau.';
+                    $mess = 'Mat khau moi: '.$newPassword.'. Ban vui long dang nhap lai de doi lai mat khau.';
                     if($this->smsTo($model->phone,$mess) == 'OK'){
                         $user = User::find()->where(['phone'=>$model->phone])->one();
                         $user->password = Yii::$app->security->generatePasswordHash($newPassword);

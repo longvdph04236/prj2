@@ -16,16 +16,18 @@ use frontend\models\Field;
 
 class FilterStadiumForm extends Model
 {
-    public $name;
     public $city;
     public $district;
     public $type;
-    public $price;
     public $rating;
+    public $res;
 
     public function rules()
     {
         return [
+            ['type','safe'],
+            ['rating','double'],
+            ['res', 'string'],
             ['city', 'exist', 'targetClass'=>'\backend\models\City', 'targetAttribute' => 'name','message'=>'Tỉnh/thành phố không tồn tại'],
             ['district', 'validateDistrict']
         ];
@@ -57,8 +59,5 @@ class FilterStadiumForm extends Model
             $this->addError($attribute, 'Quận/huyện không tồn tại');
         }
     }
-
-
-
 
 }

@@ -1,7 +1,6 @@
 <?php
 use yii\bootstrap\ActiveForm;
 use yii\helpers\Html;
-use kartik\file\FileInput;
 use dosamigos\tinymce\TinyMce;
 use backend\models\City;
 $this->params['breadcrumbs'][] = ['label' => $this->params['big-title'], 'url' => ['index']];
@@ -16,7 +15,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Thêm mới'];
             'enableClientValidation' => true,
             'enableAjaxValidation' => true,
             'validateOnBlur' => true,
-            'validationUrl' => \yii\helpers\Url::toRoute('quan-ly-san/ajax-validate')
+            'validationUrl' => \yii\helpers\Url::toRoute('quan-ly-san/ajax-validate'),
+            'options' => ['enctype' => 'multipart/form-data']
         ]); ?>
 
         <?= $form->field($model, 'name')->textInput(['placeholder' => 'Tên sân bóng'])->label('Tên sân bóng:') ?>
@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = ['label' => 'Thêm mới'];
                 ?>
         </datalist>
         <?= $form->field($model, 'district')->input('text',['list'=>'district','placeholder' => 'Chọn quận/huyện'])->label('Quận/huyện:') ?>
-        <datalist id="district">
+        <datalist id="district" class="district">
 
         </datalist>
 
@@ -102,9 +102,16 @@ $this->params['breadcrumbs'][] = ['label' => 'Thêm mới'];
             ]
             )->label('Map:') ?>
 
-        <?= $form->field($model, 'photos')->widget(FileInput::classname(), [
+        <?= $form->field($model, 'photos[]')->widget(\dosamigos\fileinput\BootstrapFileInput::className(), [
             'options' => ['accept' => 'image/*', 'multiple' => true],
-        ]); ?>
+            'clientOptions' => [
+                'previewFileType' => 'text',
+                'browseClass' => 'btn btn-success',
+                'uploadClass' => 'btn btn-info',
+                'removeClass' => 'btn btn-danger',
+                'removeIcon' => '<i class="glyphicon glyphicon-trash"></i> '
+            ]
+        ]);?>
         <div class="form-group">
             <div class="col-sm-6 col-sm-offset-3">
                 <?= Html::button('<i class="fa fa-plus"></i> Thêm mới',['type'=> 'submit', 'class'=> 'btn btn-success']) ?>

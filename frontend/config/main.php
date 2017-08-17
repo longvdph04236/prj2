@@ -23,6 +23,14 @@ return [
                 ],
             ],
         ],
+        'i18n' => [
+            'translations' => [
+                'file-input*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => dirname(__FILE__).'/../vendor/2amigos/yii2-file-input-widget/src/messages/',
+                ],
+            ],
+        ],
         'request' => [
             'csrfParam' => '_csrf-frontend',
             'class' => 'common\components\Request',
@@ -54,7 +62,10 @@ return [
             'showScriptName' => false,
             'rules' => [
                 'san-bong/chi-tiet/<id:.+>' => 'san-bong/index',
-                'san-bong/xoa/<id:\d+>/<s:\d+>' => 'san-bong/xoa'
+                'san-bong/xoa/<id:\d+>/<s:\d+>' => 'san-bong/xoa',
+                'san-bong/xoa-lich/<id:\d+>/' => 'san-bong/xoa-lich',
+                'san-bong/sua/<id:\d+>/' => 'san-bong/sua',
+                'quan-ly-san/xoa/<id:\d+>' => 'quan-ly-san/xoa'
             ],
         ],
         'assetManager' => [

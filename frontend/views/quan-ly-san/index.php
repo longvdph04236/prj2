@@ -29,7 +29,7 @@ $stadium_count = count($user->stadiums);
                     </div>
                     <div class="action-group">
                         <a href="<?= \yii\helpers\Url::toRoute(['san-bong/chi-tiet/'.$stadium['id']]) ?>"><button class="btn btn-primary">Xem chi tiết</button></a>
-                        <a href="<?= \yii\helpers\Url::toRoute(['quan-ly-san/xoa','i'=>$stadium['id']]) ?>"><button class="btn btn-danger">Xóa</button></a>
+                        <a href="<?= \yii\helpers\Url::toRoute(['quan-ly-san/xoa','id'=>$stadium['id']]) ?>"><button class="btn btn-danger">Xóa</button></a>
                     </div>
                 </li>
         <?php

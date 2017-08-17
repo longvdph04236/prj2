@@ -12,9 +12,11 @@ use backend\models\City;
 use backend\models\District;
 use common\models\Stadiums;
 use yii\base\Model;
+use Yii;
 
 class NewStadiumForm extends Model
 {
+    public $oldImg;
     public $photos;
     public $name;
     public $address;
@@ -51,11 +53,24 @@ class NewStadiumForm extends Model
         }
     }
 
-    public function upload(){
+    public function upload($id = null){
         $arr = array();
 
-        if ($this->validate()) {
+        if(Yii::$app->controller->action->id == 'sua'){
+            //var_dump(Yii::$app->request->post('oldImg'));die;
+            if(count(array_diff(Yii::$app->request->post('oldImg'),$this->oldImg)) == 0){
+                //count($this->oldimg); die;
+                if($this->validate()) {
+                    return true;
+                }
+            } else {
+                $arr = array_intersect(Yii::$app->request->post('oldImg'),$this->oldImg);
+                //var_dump($arr); die;
+            }
+        }
 
+        if ($this->validate()) {
+            //var_dump($this->photos);die;
             foreach ($this->photos as $file) {
                 $timeMarker = str_replace(" ", "_", microtime());
                 $filename = $file->baseName . $timeMarker .'.'. $file->extension;
@@ -63,8 +78,12 @@ class NewStadiumForm extends Model
 
                 $file->saveAs(\Yii::getAlias('@common').'/uploads/images/'.$filename);
             }
-            $s = new Stadiums();
 
+            if($id != null){
+                $s = Stadiums::findOne($id);
+            } else {
+                $s = new Stadiums();
+            }
             $s->photos = implode(',',$arr);
             $s->name = $this->name;
             $s->address = $this->address;
@@ -76,6 +95,7 @@ class NewStadiumForm extends Model
             $s->district_id = $d->getAttribute('id');
             $s->manager_id = \Yii::$app->user->identity->getId();
             $this->photos = NULL;
+
             if($s->save()){
                 return true;
             } else {

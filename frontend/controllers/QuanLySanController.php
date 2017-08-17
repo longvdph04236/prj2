@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 use backend\models\City;
+use common\models\Stadiums;
 use Yii;
 use backend\models\District;
 use frontend\models\NewStadiumForm;
@@ -24,14 +25,16 @@ class QuanLySanController extends \yii\web\Controller
         $model = new NewStadiumForm();
         $d = District::find()->all();
         if(!Yii::$app->request->isAjax && Yii::$app->request->isPost){
+
             if($model->load(Yii::$app->request->post())){
                 $model->photos = UploadedFile::getInstances($model, 'photos');
+                //var_dump($_FILES);die;
                 if($model->upload()){
                     return $this->redirect(['quan-ly-san/index']);
                 }
             }
         }
-        return $this->render('add',['model' => $model, 'd' => $d]);
+        return $this->render('add',['model' => $model/*, 'd' => $d*/]);
     }
 
     public function actionAjaxValidate(){
@@ -58,6 +61,15 @@ class QuanLySanController extends \yii\web\Controller
                 $r[] = $v['name'];
             }
             return json_encode($r);
+        }
+    }
+
+    public function actionXoa($id){
+        $stadium = Stadiums::findOne($id);
+        if($stadium->delete()){
+            return $this->redirect(['quan-ly-san/index']);
+        } else {
+            var_dump($stadium->errors);
         }
     }
 }

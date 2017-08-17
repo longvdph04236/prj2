@@ -118,3 +118,11 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.rating-container.rating-xs {
+    font-size: 16px !important;
+}
+
+.rating-container .caption .label {
+    font-size: 150%;
+}
