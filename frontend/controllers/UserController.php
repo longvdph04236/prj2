@@ -217,6 +217,8 @@ class UserController extends \yii\web\Controller
         $password = "2193";
         /*$username = "84987551561";
         $password = "7532";*/
+        /*$username = "84983739615";
+        $password = "6482";*/
         $mobile = $phone;
         $sender = "YeuBongDa";
         $message = $mess;

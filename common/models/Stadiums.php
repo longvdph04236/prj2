@@ -20,7 +20,6 @@ use Yii;
  * @property integer $district_id
  *
  * @property Comments[] $comments
- * @property FcList[] $fcLists
  * @property Field[] $fields
  * @property Pricing[] $pricings
  * @property Users $manager
@@ -42,7 +41,7 @@ class Stadiums extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'address', 'phone', 'photos', 'manager_id', 'district_id'], 'required'],
+            [['name', 'address', 'phone', 'manager_id', 'district_id'], 'required'],
             [['address', 'description', 'photos'], 'string'],
             [['rate'], 'number'],
             [['count_rate', 'manager_id', 'district_id'], 'integer'],
@@ -80,14 +79,6 @@ class Stadiums extends \yii\db\ActiveRecord
     public function getComments()
     {
         return $this->hasMany(Comments::className(), ['field_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getFcLists()
-    {
-        return $this->hasMany(FcList::className(), ['field_id' => 'id']);
     }
 
     /**
