@@ -1,0 +1,70 @@
+.tile-box {
+    line-height: inherit;
+    display: block;
+    position: relative;
+    height: auto;
+    padding: 0;
+    text-align: center;
+    border-width: 0;
+    border-style: solid;
+}
+
+
+
+.tile-box-shortcut .tile-header {
+    background: 0 0;
+    padding: 0;
+    position: absolute;
+    right: 5px;
+    bottom: 6px;
+    font-size:3px;
+    font-weight: 400;
+}
+.tile-header {
+    font-size: 2px;
+    padding: 5px 0;
+    text-align: left;
+    text-transform: uppercase;
+    border: 0!important;
+    background: rgba(255,255,255,.2);
+}
+.tile-box-shortcut .tile-content-wrapper {
+    padding: 0;
+    min-height: 60px;
+}
+.tile-content-wrapper>.glyph-icon {
+    font-size: 35px;
+    line-height: 70px;
+    position: absolute;
+    top: 60%;
+    left: 5px;
+    height: 70px;
+    margin-top: -36px;
+    opacity: .3;
+}
+
+
+.col-md-3 a {
+    width: 100%;
+    min-height: 150px;
+    position: relative;
+
+
+}
+.col-md-3 a span {
+    font-weight:700 ;
+    font-size: 60px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.title-header {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    top: 20%;
+    font-size: 30px;
+    letter-spacing: 1px;
+    width: 100%;
+}

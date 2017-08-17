@@ -13,7 +13,7 @@ return [
             'charset' => 'utf8',*/
             'dsn' => 'mysql:host=localhost;dbname=timsan',
             'username' => 'root',
-            'password' => '18101911',
+            'password' => '',
             'charset' => 'utf8'
         ],
         'mailer' => [
